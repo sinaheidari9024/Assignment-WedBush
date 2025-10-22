@@ -1,0 +1,905 @@
+2025-10-22 13:53:13.745 +03:00 [INF] Executed DbCommand (398ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [FixMessagesDb];
+2025-10-22 13:53:13.986 +03:00 [INF] Executed DbCommand (158ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [FixMessagesDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-10-22 13:53:14.020 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-22 13:53:14.026 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-10-22 13:53:14.084 +03:00 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-10-22 13:53:14.241 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-10-22 13:53:14.256 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-22 13:53:14.257 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-10-22 13:53:14.263 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-10-22 13:53:14.279 +03:00 [INF] Applying migration '20251022103708_Initialize'.
+2025-10-22 13:53:14.306 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [OriginalMessages] (
+    [Id] int NOT NULL IDENTITY,
+    [Message] nvarchar(MAX) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_OriginalMessages] PRIMARY KEY ([Id])
+);
+2025-10-22 13:53:14.309 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_OriginalMessages_CreatedAt] ON [OriginalMessages] ([CreatedAt]);
+2025-10-22 13:53:14.312 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20251022103708_Initialize', N'9.0.10');
+2025-10-22 13:53:14.320 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-10-22 14:09:57.844 +03:00 [INF] Model snapshot was not found in assembly 'LogCompilerBeta'. Skipping pending model changes check.
+2025-10-22 14:09:58.736 +03:00 [INF] Executed DbCommand (458ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [FixMessagesDb];
+2025-10-22 14:09:59.399 +03:00 [INF] Executed DbCommand (658ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [FixMessagesDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-10-22 14:09:59.435 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-22 14:09:59.443 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-10-22 14:09:59.488 +03:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-10-22 14:09:59.628 +03:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-10-22 14:09:59.645 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-22 14:09:59.646 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-10-22 14:09:59.689 +03:00 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-10-22 14:09:59.702 +03:00 [INF] Applying migration '20251022103708_Initialize'.
+2025-10-22 14:09:59.737 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [OriginalMessages] (
+    [Id] int NOT NULL IDENTITY,
+    [Message] nvarchar(MAX) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_OriginalMessages] PRIMARY KEY ([Id])
+);
+2025-10-22 14:09:59.744 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_OriginalMessages_CreatedAt] ON [OriginalMessages] ([CreatedAt]);
+2025-10-22 14:09:59.758 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20251022103708_Initialize', N'9.0.10');
+2025-10-22 14:09:59.767 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-10-22 14:16:53.554 +03:00 [INF] Model snapshot was not found in assembly 'LogCompilerBeta'. Skipping pending model changes check.
+2025-10-22 14:16:53.886 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-22 14:16:53.902 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-10-22 14:16:53.927 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-10-22 14:16:54.095 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-10-22 14:16:54.110 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-22 14:16:54.113 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-10-22 14:16:54.118 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-10-22 14:16:54.131 +03:00 [INF] Applying migration '20251022103708_Initialize'.
+2025-10-22 14:16:54.172 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [OriginalMessages] (
+    [Id] int NOT NULL IDENTITY,
+    [Message] nvarchar(MAX) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_OriginalMessages] PRIMARY KEY ([Id])
+);
+2025-10-22 14:16:54.180 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_OriginalMessages_CreatedAt] ON [OriginalMessages] ([CreatedAt]);
+2025-10-22 14:16:54.185 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20251022103708_Initialize', N'9.0.10');
+2025-10-22 14:16:54.191 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-10-22 16:12:10.846 +03:00 [INF] Starting web application
+2025-10-22 16:12:11.282 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 16:12:11.308 +03:00 [INF] Hosting environment: Development
+2025-10-22 16:12:11.311 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 16:12:11.393 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-22 16:12:12.331 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 16:12:12.414 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-22 16:12:12.412 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 1030.6232ms
+2025-10-22 16:12:12.413 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 83.1277ms
+2025-10-22 16:12:12.511 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 97.3631ms
+2025-10-22 16:12:12.673 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-22 16:12:13.152 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 477.4691ms
+2025-10-22 16:18:48.181 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/WeatherForecast - null null
+2025-10-22 16:18:48.241 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.WeatherForecastController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 16:18:48.304 +03:00 [INF] Route matched with {action = "CompileFile", controller = "WeatherForecast"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.WeatherForecastController (LogCompilerBeta).
+2025-10-22 16:18:48.781 +03:00 [INF] Executing action method LogCompilerBeta.Controllers.WeatherForecastController.CompileFileAsync (LogCompilerBeta) - Validation state: "Valid"
+2025-10-22 16:18:52.126 +03:00 [INF] Read 2 reject messages and 2 execution report messages
+2025-10-22 16:18:57.644 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-22 16:19:04.087 +03:00 [INF] Executed DbCommand (162ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-22 16:19:09.182 +03:00 [INF] Executed action method LogCompilerBeta.Controllers.WeatherForecastController.CompileFileAsync (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 20394.1971ms.
+2025-10-22 16:19:09.193 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-22 16:19:09.218 +03:00 [INF] Executed action LogCompilerBeta.Controllers.WeatherForecastController.CompileFileAsync (LogCompilerBeta) in 20908.177ms
+2025-10-22 16:19:09.220 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.WeatherForecastController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 16:19:09.230 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/WeatherForecast - 200 null application/json; charset=utf-8 21049.2701ms
+2025-10-22 19:33:27.767 +03:00 [INF] Starting web application
+2025-10-22 19:33:28.195 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 19:33:28.224 +03:00 [INF] Hosting environment: Development
+2025-10-22 19:33:28.226 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 19:33:28.352 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-22 19:33:29.360 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 1022.5876ms
+2025-10-22 19:33:29.429 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 19:33:29.454 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 9.278ms
+2025-10-22 19:33:29.490 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-22 19:33:32.000 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 2510.3967ms
+2025-10-22 19:33:32.807 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-22 19:33:33.002 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 195.266ms
+2025-10-22 19:34:55.978 +03:00 [INF] Starting web application
+2025-10-22 19:34:56.246 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 19:34:56.257 +03:00 [INF] Hosting environment: Development
+2025-10-22 19:34:56.259 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 19:34:56.291 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-22 19:34:57.006 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 720.731ms
+2025-10-22 19:34:57.095 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 19:34:57.117 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 8.8518ms
+2025-10-22 19:34:57.122 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-22 19:34:57.201 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 79.1316ms
+2025-10-22 19:34:57.334 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-22 19:34:57.516 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 181.0977ms
+2025-10-22 19:36:14.068 +03:00 [INF] Starting web application
+2025-10-22 19:36:14.494 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 19:36:14.504 +03:00 [INF] Hosting environment: Development
+2025-10-22 19:36:14.506 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 19:36:14.561 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-22 19:36:15.265 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 710.5081ms
+2025-10-22 19:36:15.334 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 19:36:15.352 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 7.1209ms
+2025-10-22 19:36:15.387 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-22 19:36:15.454 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 67.67ms
+2025-10-22 19:36:15.929 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-22 19:36:16.111 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 182.0241ms
+2025-10-22 19:36:26.257 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2025-10-22 19:36:26.326 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 307 null null 68.648ms
+2025-10-22 19:36:26.335 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/ - null null
+2025-10-22 19:36:26.343 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/ - 404 null null 7.8819ms
+2025-10-22 19:36:26.349 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44315/, Response status code: 404
+2025-10-22 19:36:34.647 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger - null null
+2025-10-22 19:36:34.653 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger - 301 null null 5.822ms
+2025-10-22 19:36:34.663 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2025-10-22 19:36:34.674 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 10.4967ms
+2025-10-22 19:36:34.693 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - null null
+2025-10-22 19:36:34.694 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - null null
+2025-10-22 19:36:34.699 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - null null
+2025-10-22 19:36:34.715 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 19:36:34.717 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 13.6951ms
+2025-10-22 19:36:34.718 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-10-22 19:36:34.772 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-10-22 19:36:34.773 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-10-22 19:36:34.779 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - 200 143943 text/css 86.2282ms
+2025-10-22 19:36:34.793 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 74.298ms
+2025-10-22 19:36:34.794 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 94.7859ms
+2025-10-22 19:36:34.796 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-10-22 19:36:34.837 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 143.3118ms
+2025-10-22 19:36:35.085 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2025-10-22 19:36:35.092 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7.5828ms
+2025-10-22 19:36:35.166 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/favicon-32x32.png - null null
+2025-10-22 19:36:35.167 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-10-22 19:36:35.170 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/favicon-32x32.png - 200 628 image/png 3.1948ms
+2025-10-22 19:37:41.370 +03:00 [INF] Starting web application
+2025-10-22 19:37:41.592 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 19:37:41.599 +03:00 [INF] Hosting environment: Development
+2025-10-22 19:37:41.601 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 19:37:41.627 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-22 19:37:42.010 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 363.3367ms
+2025-10-22 19:37:42.081 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 19:37:42.088 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 6.429ms
+2025-10-22 19:37:42.135 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-22 19:37:42.199 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 63.6333ms
+2025-10-22 19:37:42.249 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-22 19:37:42.387 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 137.8693ms
+2025-10-22 19:40:58.836 +03:00 [INF] Starting web application
+2025-10-22 19:41:00.228 +03:00 [INF] Now listening on: http://localhost:5000
+2025-10-22 19:41:03.670 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 19:41:05.281 +03:00 [INF] Hosting environment: Development
+2025-10-22 19:41:05.313 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 19:57:10.852 +03:00 [INF] Starting web application
+2025-10-22 19:57:11.147 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 19:57:11.158 +03:00 [INF] Hosting environment: Development
+2025-10-22 19:57:11.160 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 19:57:11.192 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-22 19:57:11.955 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 19:57:11.953 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 684.8811ms
+2025-10-22 19:57:11.961 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-22 19:57:11.962 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 6.5692ms
+2025-10-22 19:57:12.147 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 185.9985ms
+2025-10-22 19:57:12.329 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-22 19:57:12.745 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 415.8381ms
+2025-10-22 20:03:46.687 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 20:03:46.758 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 404 null null 71.8696ms
+2025-10-22 20:03:46.763 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44315/api/CompileFile, Response status code: 404
+2025-10-22 20:04:03.632 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 20:04:03.641 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 8.3228ms
+2025-10-22 20:04:03.652 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 20:04:03.682 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 404 null null 29.8438ms
+2025-10-22 20:04:03.682 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44315/api/CompileFile, Response status code: 404
+2025-10-22 20:04:12.396 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 20:04:12.401 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 404 null null 4.954ms
+2025-10-22 20:04:12.402 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44315/api/CompileFile, Response status code: 404
+2025-10-22 20:05:11.785 +03:00 [INF] Starting web application
+2025-10-22 20:05:12.145 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 20:05:12.154 +03:00 [INF] Hosting environment: Development
+2025-10-22 20:05:12.156 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 20:05:12.195 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-22 20:05:12.942 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-22 20:05:12.871 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 683.2568ms
+2025-10-22 20:05:12.967 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 20:05:12.973 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 5.3074ms
+2025-10-22 20:05:13.084 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 143.5257ms
+2025-10-22 20:05:13.164 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-22 20:05:13.443 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 278.3153ms
+2025-10-22 20:06:11.150 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/api/CompileFile - null null
+2025-10-22 20:06:11.215 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/api/CompileFile - 307 null null 64.8412ms
+2025-10-22 20:06:11.222 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 20:06:11.230 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 404 null null 7.8653ms
+2025-10-22 20:06:11.236 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44315/api/CompileFile, Response status code: 404
+2025-10-22 20:06:26.273 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/api/CompileFile - null null
+2025-10-22 20:06:26.281 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/api/CompileFile - 307 null null 7.5932ms
+2025-10-22 20:06:26.297 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 20:06:26.304 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 404 null null 6.2436ms
+2025-10-22 20:06:26.307 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44315/api/CompileFile, Response status code: 404
+2025-10-22 20:06:46.316 +03:00 [INF] Starting web application
+2025-10-22 20:06:46.748 +03:00 [INF] Now listening on: http://localhost:5003
+2025-10-22 20:06:46.762 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 20:06:46.767 +03:00 [INF] Hosting environment: Development
+2025-10-22 20:06:46.771 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 20:06:47.405 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5003/swagger - null null
+2025-10-22 20:06:47.788 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5003/swagger - 301 0 null 385.3874ms
+2025-10-22 20:06:47.814 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5003/swagger/index.html - null null
+2025-10-22 20:06:48.153 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5003/swagger/index.html - 200 null text/html;charset=utf-8 338.631ms
+2025-10-22 20:06:48.173 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5003/swagger/swagger-ui-standalone-preset.js - null null
+2025-10-22 20:06:48.189 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5003/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 20:06:48.163 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5003/swagger/swagger-ui-bundle.js - null null
+2025-10-22 20:06:48.202 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5003/_vs/browserLink - null null
+2025-10-22 20:06:48.241 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5003/swagger/swagger-ui.css - null null
+2025-10-22 20:06:48.256 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5003/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 77.3826ms
+2025-10-22 20:06:48.401 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-10-22 20:06:48.401 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-10-22 20:06:48.401 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-10-22 20:06:48.419 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5003/swagger/swagger-ui.css - 200 143943 text/css 178.8575ms
+2025-10-22 20:06:48.416 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5003/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 242.9233ms
+2025-10-22 20:06:48.599 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5003/_vs/browserLink - 200 null text/javascript; charset=UTF-8 396.4863ms
+2025-10-22 20:06:48.636 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5003/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 472.8365ms
+2025-10-22 20:06:48.887 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5003/swagger/v1/swagger.json - null null
+2025-10-22 20:06:48.900 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5003/swagger/favicon-32x32.png - null null
+2025-10-22 20:06:48.973 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-10-22 20:06:48.980 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5003/swagger/favicon-32x32.png - 200 628 image/png 79.4386ms
+2025-10-22 20:06:49.197 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5003/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 309.095ms
+2025-10-22 20:07:35.033 +03:00 [INF] Starting web application
+2025-10-22 20:07:35.403 +03:00 [INF] Now listening on: http://localhost:5000
+2025-10-22 20:07:35.412 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 20:07:35.415 +03:00 [INF] Hosting environment: Development
+2025-10-22 20:07:35.418 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 20:07:38.864 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2025-10-22 20:07:39.415 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 554.5157ms
+2025-10-22 20:07:39.432 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-10-22 20:07:39.481 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 20:07:39.497 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 16.1809ms
+2025-10-22 20:07:39.575 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 144.2994ms
+2025-10-22 20:07:40.687 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2025-10-22 20:07:40.964 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 277.1105ms
+2025-10-22 20:08:07.422 +03:00 [INF] Starting web application
+2025-10-22 20:08:07.930 +03:00 [ERR] Hosting failed to start
+System.InvalidOperationException: Unable to configure HTTPS endpoint. No server certificate was specified, and the default developer certificate could not be found or is out of date.
+To generate a developer certificate run 'dotnet dev-certs https'. To trust the certificate (Windows and macOS only) run 'dotnet dev-certs https --trust'.
+For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?linkid=848054.
+   at Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(ListenOptions listenOptions, Action`1 configureOptions)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-10-22 20:08:08.076 +03:00 [FTL] Application terminated unexpectedly
+System.InvalidOperationException: Unable to configure HTTPS endpoint. No server certificate was specified, and the default developer certificate could not be found or is out of date.
+To generate a developer certificate run 'dotnet dev-certs https'. To trust the certificate (Windows and macOS only) run 'dotnet dev-certs https --trust'.
+For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?linkid=848054.
+   at Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(ListenOptions listenOptions, Action`1 configureOptions)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in C:\WedBush\Projects\Assignment\LogCompilerBeta\Program.cs:line 52
+2025-10-22 20:08:20.678 +03:00 [INF] Starting web application
+2025-10-22 20:08:21.251 +03:00 [ERR] Hosting failed to start
+System.InvalidOperationException: Unable to configure HTTPS endpoint. No server certificate was specified, and the default developer certificate could not be found or is out of date.
+To generate a developer certificate run 'dotnet dev-certs https'. To trust the certificate (Windows and macOS only) run 'dotnet dev-certs https --trust'.
+For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?linkid=848054.
+   at Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(ListenOptions listenOptions, Action`1 configureOptions)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-10-22 20:08:21.395 +03:00 [FTL] Application terminated unexpectedly
+System.InvalidOperationException: Unable to configure HTTPS endpoint. No server certificate was specified, and the default developer certificate could not be found or is out of date.
+To generate a developer certificate run 'dotnet dev-certs https'. To trust the certificate (Windows and macOS only) run 'dotnet dev-certs https --trust'.
+For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?linkid=848054.
+   at Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(ListenOptions listenOptions, Action`1 configureOptions)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in C:\WedBush\Projects\Assignment\LogCompilerBeta\Program.cs:line 52
+2025-10-22 20:08:36.606 +03:00 [INF] Starting web application
+2025-10-22 20:08:36.835 +03:00 [INF] Now listening on: http://localhost:5000
+2025-10-22 20:08:36.844 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 20:08:36.847 +03:00 [INF] Hosting environment: Development
+2025-10-22 20:08:36.850 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 20:08:37.515 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2025-10-22 20:08:37.931 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 417.1849ms
+2025-10-22 20:08:37.942 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 20:08:37.959 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-10-22 20:08:37.969 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 27.3768ms
+2025-10-22 20:08:38.038 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 78.7014ms
+2025-10-22 20:08:38.088 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2025-10-22 20:08:38.314 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 225.9033ms
+2025-10-22 20:09:02.271 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 20:09:02.351 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-22 20:09:02.359 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 404 0 null 88.3339ms
+2025-10-22 20:09:02.374 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/api/CompileFile, Response status code: 404
+2025-10-22 20:09:08.245 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 20:09:08.262 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 404 0 null 16.7584ms
+2025-10-22 20:09:08.276 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/api/CompileFile, Response status code: 404
+2025-10-22 20:09:12.434 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 20:09:12.479 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 45.1114ms
+2025-10-22 20:09:32.453 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 20:09:32.500 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 404 0 null 46.5502ms
+2025-10-22 20:09:32.510 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/api/CompileFile, Response status code: 404
+2025-10-22 20:10:51.101 +03:00 [INF] Starting web application
+2025-10-22 20:10:51.519 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 20:10:51.530 +03:00 [INF] Hosting environment: Development
+2025-10-22 20:10:51.532 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 20:10:51.593 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-22 20:10:52.322 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 728.5215ms
+2025-10-22 20:10:52.507 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 20:10:52.519 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 12.2902ms
+2025-10-22 20:10:52.541 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-22 20:10:52.631 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 90.1382ms
+2025-10-22 20:10:52.884 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-22 20:10:53.045 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 160.918ms
+2025-10-22 20:11:17.097 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 20:11:17.123 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 25.0899ms
+2025-10-22 20:11:17.140 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 20:11:17.168 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 404 null null 27.6328ms
+2025-10-22 20:11:17.171 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44315/api/CompileFile, Response status code: 404
+2025-10-22 20:11:30.645 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 20:11:30.652 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 6.6308ms
+2025-10-22 20:11:30.666 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 20:11:30.673 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 404 null null 6.9106ms
+2025-10-22 20:11:30.675 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44315/api/CompileFile, Response status code: 404
+2025-10-22 20:11:40.589 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 20:11:40.595 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 6.3441ms
+2025-10-22 20:11:40.614 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 20:11:40.621 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 404 null null 6.9073ms
+2025-10-22 20:11:40.625 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44315/api/CompileFile, Response status code: 404
+2025-10-22 20:13:30.871 +03:00 [INF] Starting web application
+2025-10-22 20:13:31.149 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 20:13:31.160 +03:00 [INF] Hosting environment: Development
+2025-10-22 20:13:31.162 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 20:13:31.305 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-22 20:13:31.788 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 20:13:31.807 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-22 20:13:31.812 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 509.5642ms
+2025-10-22 20:13:31.812 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 47.6324ms
+2025-10-22 20:13:31.899 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 92.2461ms
+2025-10-22 20:13:31.953 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-22 20:13:32.197 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 243.5778ms
+2025-10-22 20:15:58.827 +03:00 [INF] Starting web application
+2025-10-22 20:15:59.062 +03:00 [INF] Now listening on: http://localhost:5000
+2025-10-22 20:15:59.074 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 20:15:59.079 +03:00 [INF] Hosting environment: Development
+2025-10-22 20:15:59.085 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 20:16:02.214 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2025-10-22 20:16:03.078 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 869.0816ms
+2025-10-22 20:16:03.481 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 20:16:03.499 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 18.7623ms
+2025-10-22 20:16:03.511 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-10-22 20:16:03.570 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.8051ms
+2025-10-22 20:16:03.639 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2025-10-22 20:16:03.870 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 230.4879ms
+2025-10-22 20:16:09.908 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 20:16:10.031 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-22 20:16:10.039 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 404 0 null 130.8031ms
+2025-10-22 20:16:10.332 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/api/CompileFile, Response status code: 404
+2025-10-22 20:16:22.657 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 20:16:22.669 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 404 0 null 11.8532ms
+2025-10-22 20:16:22.680 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/api/CompileFile, Response status code: 404
+2025-10-22 20:19:09.907 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 20:19:09.949 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 404 0 null 41.8004ms
+2025-10-22 20:19:09.961 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/api/CompileFile, Response status code: 404
+2025-10-22 20:20:26.616 +03:00 [INF] Starting web application
+2025-10-22 20:20:27.060 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 20:20:27.080 +03:00 [INF] Hosting environment: Development
+2025-10-22 20:20:27.082 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 20:20:27.122 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-22 20:20:27.575 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 460.8771ms
+2025-10-22 20:20:27.711 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 20:20:27.728 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 6.9231ms
+2025-10-22 20:20:27.759 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-22 20:20:27.838 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 79.7615ms
+2025-10-22 20:20:28.327 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-22 20:20:28.581 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 253.9548ms
+2025-10-22 20:20:42.554 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/compilefile - null null
+2025-10-22 20:20:42.599 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/compilefile - 307 null null 45.0172ms
+2025-10-22 20:20:42.605 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/compilefile - null null
+2025-10-22 20:20:42.630 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/compilefile - 404 null null 24.8639ms
+2025-10-22 20:20:42.635 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44315/api/compilefile, Response status code: 404
+2025-10-22 20:20:50.357 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/compilefile - null null
+2025-10-22 20:20:50.363 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/compilefile - 307 null null 6.2383ms
+2025-10-22 20:20:50.378 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/compilefile - null null
+2025-10-22 20:20:50.387 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/compilefile - 404 null null 9.0236ms
+2025-10-22 20:20:50.387 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44315/api/compilefile, Response status code: 404
+2025-10-22 20:20:56.948 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 20:20:56.962 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 13.9303ms
+2025-10-22 20:20:56.976 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 20:20:56.980 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 404 null null 3.3636ms
+2025-10-22 20:20:56.980 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44315/api/CompileFile, Response status code: 404
+2025-10-22 20:23:11.773 +03:00 [INF] Starting web application
+2025-10-22 20:23:12.034 +03:00 [INF] Now listening on: http://localhost:5000
+2025-10-22 20:23:12.042 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 20:23:12.046 +03:00 [INF] Hosting environment: Development
+2025-10-22 20:23:12.050 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 20:23:12.995 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2025-10-22 20:23:13.523 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 529.9749ms
+2025-10-22 20:23:13.576 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-10-22 20:23:13.576 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 20:23:13.610 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 34.8768ms
+2025-10-22 20:23:13.693 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 117.6289ms
+2025-10-22 20:23:13.795 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2025-10-22 20:23:14.034 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 239.0543ms
+2025-10-22 20:23:49.089 +03:00 [INF] Starting web application
+2025-10-22 20:23:49.376 +03:00 [INF] Now listening on: http://localhost:5000
+2025-10-22 20:23:49.386 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 20:23:49.390 +03:00 [INF] Hosting environment: Development
+2025-10-22 20:23:49.393 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 20:23:52.413 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2025-10-22 20:23:53.056 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 645.3145ms
+2025-10-22 20:23:53.102 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-10-22 20:23:53.280 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 20:23:53.294 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 13.3591ms
+2025-10-22 20:23:53.366 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 265.042ms
+2025-10-22 20:23:53.460 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2025-10-22 20:23:53.715 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 254.8177ms
+2025-10-22 20:24:11.505 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 20:24:11.547 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-22 20:24:11.556 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 20:24:11.625 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-22 20:24:15.063 +03:00 [INF] Read 2 reject messages and 2 execution report messages
+2025-10-22 20:24:16.053 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-22 20:24:19.388 +03:00 [INF] Executed DbCommand (107ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-22 20:24:19.485 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-22 20:24:19.514 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 7871.7404ms
+2025-10-22 20:24:19.537 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 20:24:19.559 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 200 null application/json; charset=utf-8 8053.5306ms
+2025-10-22 20:24:19.627 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-10-22 20:24:19.646 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 404 0 null 19.1373ms
+2025-10-22 20:24:19.663 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/favicon.ico, Response status code: 404
+2025-10-22 20:25:05.425 +03:00 [INF] Starting web application
+2025-10-22 20:25:05.684 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 20:25:05.692 +03:00 [INF] Hosting environment: Development
+2025-10-22 20:25:05.694 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 20:25:05.726 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-22 20:25:05.725 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 20:25:05.996 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 20:25:06.004 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 283.0826ms
+2025-10-22 20:25:06.018 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 20:25:06.061 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-22 20:25:06.229 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 509.3029ms
+2025-10-22 20:25:06.262 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 20:25:06.267 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 4.3972ms
+2025-10-22 20:25:06.272 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-22 20:25:09.603 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 3330.7919ms
+2025-10-22 20:25:09.640 +03:00 [INF] Read 2 reject messages and 2 execution report messages
+2025-10-22 20:25:10.522 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-22 20:25:10.528 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-22 20:25:11.319 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 796.8018ms
+2025-10-22 20:25:12.593 +03:00 [INF] Executed DbCommand (76ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-22 20:25:12.679 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-22 20:25:12.704 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 6635.861ms
+2025-10-22 20:25:12.731 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 20:25:12.752 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 6756.0408ms
+2025-10-22 20:25:12.833 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/favicon.ico - null null
+2025-10-22 20:25:12.836 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/favicon.ico - 404 null null 2.7326ms
+2025-10-22 20:25:12.838 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44315/favicon.ico, Response status code: 404
+2025-10-22 20:25:53.820 +03:00 [INF] Starting web application
+2025-10-22 20:25:54.255 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 20:25:54.264 +03:00 [INF] Hosting environment: Development
+2025-10-22 20:25:54.266 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 20:25:54.307 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-22 20:25:54.921 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 20:25:54.928 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 7.2073ms
+2025-10-22 20:25:54.935 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-22 20:25:54.865 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 565.1769ms
+2025-10-22 20:25:55.091 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 155.4562ms
+2025-10-22 20:25:55.155 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-22 20:25:55.403 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 247.5336ms
+2025-10-22 20:25:58.624 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 20:25:58.639 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 20:25:58.667 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-22 20:25:58.947 +03:00 [INF] Read 2 reject messages and 2 execution report messages
+2025-10-22 20:25:58.954 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-22 20:26:00.294 +03:00 [INF] Executed DbCommand (77ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-22 20:26:00.379 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-22 20:26:00.406 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 1733.5654ms
+2025-10-22 20:26:00.407 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 20:26:00.420 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 1796.7037ms
+2025-10-22 20:53:47.821 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 20:53:47.868 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 47.6776ms
+2025-10-22 20:53:47.888 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 20:53:47.903 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 20:53:47.907 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-22 20:53:47.947 +03:00 [INF] Read 2 reject messages and 2 execution report messages
+2025-10-22 20:53:47.948 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-22 20:53:48.045 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-22 20:53:48.065 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-22 20:53:48.066 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 158.9786ms
+2025-10-22 20:53:48.067 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 20:53:48.069 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 181.4294ms
+2025-10-22 20:53:48.188 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/favicon.ico - null null
+2025-10-22 20:53:48.195 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/favicon.ico - 404 null null 7.5992ms
+2025-10-22 20:53:48.197 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44315/favicon.ico, Response status code: 404
+2025-10-22 20:54:58.736 +03:00 [INF] Starting web application
+2025-10-22 20:54:59.139 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 20:54:59.149 +03:00 [INF] Hosting environment: Development
+2025-10-22 20:54:59.151 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 20:54:59.194 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-22 20:54:59.695 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-22 20:54:59.697 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 507.8349ms
+2025-10-22 20:54:59.702 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 20:54:59.731 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 13.7249ms
+2025-10-22 20:54:59.786 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 91.7517ms
+2025-10-22 20:54:59.827 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-22 20:55:00.053 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 226.3568ms
+2025-10-22 20:57:43.652 +03:00 [INF] Starting web application
+2025-10-22 20:57:43.944 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 20:57:43.953 +03:00 [INF] Hosting environment: Development
+2025-10-22 20:57:43.955 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 20:57:43.989 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-22 20:57:44.427 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-22 20:57:44.427 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 20:57:44.429 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 446.1198ms
+2025-10-22 20:57:44.434 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 5.6014ms
+2025-10-22 20:57:44.496 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 70.1851ms
+2025-10-22 20:57:44.542 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-22 20:57:44.744 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 201.625ms
+2025-10-22 21:03:50.641 +03:00 [INF] Starting web application
+2025-10-22 21:03:50.968 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 21:03:50.979 +03:00 [INF] Hosting environment: Development
+2025-10-22 21:03:50.981 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 21:03:51.026 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-22 21:03:51.723 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-22 21:03:51.742 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 21:03:51.741 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 676.7173ms
+2025-10-22 21:03:51.767 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 19.9638ms
+2025-10-22 21:03:51.863 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 141.2419ms
+2025-10-22 21:03:51.936 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-22 21:03:52.175 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 239.7418ms
+2025-10-22 21:04:07.831 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 21:04:07.843 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 13.2319ms
+2025-10-22 21:04:07.850 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 21:04:07.854 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 3.5253ms
+2025-10-22 21:04:07.860 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 21:04:07.872 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:04:07.915 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-22 21:04:08.207 +03:00 [INF] Read 2 reject messages and 2 execution report messages
+2025-10-22 21:04:08.211 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-22 21:04:10.877 +03:00 [INF] Executed DbCommand (104ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-22 21:04:10.984 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-22 21:04:11.223 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 21:04:11.226 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:04:11.227 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-22 21:04:11.397 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 3403.0108ms
+2025-10-22 21:04:11.401 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:04:11.466 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 3606.6159ms
+2025-10-22 21:04:11.469 +03:00 [INF] Read 2 reject messages and 2 execution report messages
+2025-10-22 21:04:11.470 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-22 21:04:11.576 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-22 21:04:11.578 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-22 21:04:11.581 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 352.8206ms
+2025-10-22 21:04:11.581 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:04:11.582 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 358.7344ms
+2025-10-22 21:04:23.543 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 21:04:23.546 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 3.8188ms
+2025-10-22 21:04:23.556 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 21:04:23.556 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:04:23.557 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-22 21:04:23.561 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 21:04:23.564 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 4.2657ms
+2025-10-22 21:04:23.615 +03:00 [INF] Read 2 reject messages and 2 execution report messages
+2025-10-22 21:04:23.617 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-22 21:04:23.653 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-22 21:04:23.655 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-22 21:04:23.656 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 99.3643ms
+2025-10-22 21:04:23.661 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:04:23.662 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 105.9999ms
+2025-10-22 21:04:23.667 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 21:04:23.668 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:04:23.669 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-22 21:04:23.724 +03:00 [INF] Read 2 reject messages and 2 execution report messages
+2025-10-22 21:04:23.725 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-22 21:04:23.731 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-22 21:04:23.732 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-22 21:04:23.736 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 65.5946ms
+2025-10-22 21:04:23.737 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:04:23.738 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 71.1544ms
+2025-10-22 21:05:48.581 +03:00 [INF] Starting web application
+2025-10-22 21:05:49.230 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 21:05:49.240 +03:00 [INF] Hosting environment: Development
+2025-10-22 21:05:49.242 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 21:05:49.303 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-22 21:05:49.885 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 592.798ms
+2025-10-22 21:05:49.952 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 21:05:49.965 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 9.6988ms
+2025-10-22 21:05:50.117 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-22 21:05:50.202 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 84.9717ms
+2025-10-22 21:05:50.439 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-22 21:05:50.680 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 240.9361ms
+2025-10-22 21:05:50.931 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 21:05:50.940 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 8.9076ms
+2025-10-22 21:05:50.948 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 21:05:50.950 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 1.6853ms
+2025-10-22 21:05:50.953 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 21:05:50.968 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:05:51.021 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-22 21:05:51.330 +03:00 [INF] Read 2 reject messages and 2 execution report messages
+2025-10-22 21:05:51.334 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-22 21:05:52.537 +03:00 [INF] Executed DbCommand (66ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-22 21:05:52.596 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-22 21:05:52.836 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 21:05:52.837 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:05:52.837 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-22 21:05:52.848 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 1816.572ms
+2025-10-22 21:05:52.849 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:05:52.901 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 1947.5267ms
+2025-10-22 21:05:52.902 +03:00 [INF] Read 2 reject messages and 2 execution report messages
+2025-10-22 21:05:52.903 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-22 21:05:52.968 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-22 21:05:52.971 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-22 21:05:52.972 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 134.4244ms
+2025-10-22 21:05:52.974 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:05:53.005 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 168.8915ms
+2025-10-22 21:06:49.810 +03:00 [INF] Starting web application
+2025-10-22 21:06:50.108 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-22 21:06:50.118 +03:00 [INF] Hosting environment: Development
+2025-10-22 21:06:50.121 +03:00 [INF] Content root path: C:\WedBush\Projects\Assignment\LogCompilerBeta
+2025-10-22 21:06:50.147 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-22 21:06:50.617 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-22 21:06:50.618 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-22 21:06:50.625 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 7.3076ms
+2025-10-22 21:06:50.624 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 478.6898ms
+2025-10-22 21:06:50.689 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 72.8906ms
+2025-10-22 21:06:50.737 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-22 21:06:50.925 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 187.8432ms
+2025-10-22 21:06:53.661 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 21:06:53.677 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 16.5201ms
+2025-10-22 21:06:53.686 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 21:06:53.688 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 1.6425ms
+2025-10-22 21:06:53.707 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 21:06:53.719 +03:00 [INF] CORS policy execution successful.
+2025-10-22 21:06:53.733 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:06:53.763 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-22 21:06:54.003 +03:00 [INF] Read 2 reject messages and 2 execution report messages
+2025-10-22 21:06:54.006 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-22 21:06:55.443 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 21:06:55.454 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 10.6926ms
+2025-10-22 21:06:55.459 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-22 21:06:55.459 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 21:06:55.461 +03:00 [INF] CORS policy execution successful.
+2025-10-22 21:06:55.462 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:06:55.464 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-22 21:06:55.464 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 4.9394ms
+2025-10-22 21:06:55.541 +03:00 [INF] Read 2 reject messages and 2 execution report messages
+2025-10-22 21:06:55.574 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-22 21:06:55.825 +03:00 [INF] Executed DbCommand (118ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-22 21:06:55.825 +03:00 [INF] Executed DbCommand (118ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-22 21:06:55.903 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-22 21:06:55.903 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-22 21:06:56.227 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-22 21:06:56.320 +03:00 [INF] CORS policy execution successful.
+2025-10-22 21:06:56.385 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:06:56.448 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-22 21:06:56.718 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 1045.4754ms
+2025-10-22 21:06:56.789 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 3025.6813ms
+2025-10-22 21:06:56.790 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:06:56.791 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:06:56.822 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 499 null application/json; charset=utf-8 3115.5303ms
+2025-10-22 21:06:56.822 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 1363.1324ms
+2025-10-22 21:06:56.833 +03:00 [INF] Read 2 reject messages and 2 execution report messages
+2025-10-22 21:06:56.834 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-22 21:06:56.863 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-22 21:06:56.868 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-22 21:06:56.871 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 361.313ms
+2025-10-22 21:06:56.872 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-22 21:06:56.873 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 645.4873ms

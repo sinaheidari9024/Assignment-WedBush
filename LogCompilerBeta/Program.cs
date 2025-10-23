@@ -18,14 +18,25 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
 builder.Host.UseSerilog();
 
 builder.Services.AddScoped<IFileAnalyzer, FileAnalyzer>();
 builder.Services.AddScoped<IContentReader, ContentReader>();
-builder.Services.AddScoped<IDataRepository, SQLRepository>();
+
+var repositorySettings = builder.Configuration.GetSection("RepositorySettings");
+bool useInMemory = repositorySettings.GetValue<bool>("UseInMemoryRepository");
+
+if (useInMemory)
+{
+    builder.Services.AddScoped<IDataRepository, InMemoryRepository>();
+    builder.Services.AddSingleton<InMemoryRepository>(); 
+}
+else
+{
+    builder.Services.AddScoped<IDataRepository, SQLRepository>();
+    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+}
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

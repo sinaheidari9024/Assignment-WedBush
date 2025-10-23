@@ -322,3 +322,232 @@ OUTPUT INSERTED.[Id], i._Position;
 2025-10-23 03:43:45.365 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 219.3256ms
 2025-10-23 03:43:45.431 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
 2025-10-23 03:43:45.674 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 243.1035ms
+2025-10-23 04:59:47.252 +03:00 [INF] Starting web application
+2025-10-23 04:59:47.597 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-23 04:59:47.619 +03:00 [INF] Hosting environment: Development
+2025-10-23 04:59:47.621 +03:00 [INF] Content root path: C:\WedBush\Projects\New folder\LogCompilerBeta
+2025-10-23 04:59:47.710 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-23 04:59:48.519 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-23 04:59:48.519 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-23 04:59:48.518 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 804.1405ms
+2025-10-23 04:59:48.530 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 11.6881ms
+2025-10-23 04:59:48.679 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 160.6106ms
+2025-10-23 04:59:48.750 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-23 04:59:49.014 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 263.4843ms
+2025-10-23 05:00:32.167 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-23 05:00:32.179 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 12.4034ms
+2025-10-23 05:00:32.189 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-23 05:00:32.191 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 1.6516ms
+2025-10-23 05:00:32.207 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-23 05:00:32.214 +03:00 [INF] CORS policy execution successful.
+2025-10-23 05:00:32.226 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 05:00:32.259 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-23 05:00:32.640 +03:00 [INF] Executing action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) - Validation state: "Valid"
+2025-10-23 05:00:32.733 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-23 05:00:32.737 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-23 05:00:34.577 +03:00 [INF] Executed DbCommand (116ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-23 05:00:34.642 +03:00 [INF] Executed action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1996.6438ms.
+2025-10-23 05:00:34.650 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-23 05:00:34.672 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-23 05:00:34.674 +03:00 [INF] CORS policy execution successful.
+2025-10-23 05:00:34.674 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 05:00:34.675 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-23 05:00:34.678 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 2412.0607ms
+2025-10-23 05:00:34.679 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 05:00:34.706 +03:00 [INF] Executing action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) - Validation state: "Valid"
+2025-10-23 05:00:34.754 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 2546.8269ms
+2025-10-23 05:00:34.801 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-23 05:00:34.802 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-23 05:00:34.875 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-23 05:00:34.878 +03:00 [INF] Executed action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 171.2438ms.
+2025-10-23 05:00:34.880 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-23 05:00:34.882 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 205.6721ms
+2025-10-23 05:00:34.882 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 05:00:34.885 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 212.2308ms
+2025-10-23 05:01:17.151 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-23 05:01:17.163 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 13.0213ms
+2025-10-23 05:01:17.170 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-23 05:01:17.170 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-23 05:01:17.173 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 2.3604ms
+2025-10-23 05:01:17.173 +03:00 [INF] CORS policy execution successful.
+2025-10-23 05:01:17.174 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 05:01:17.175 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-23 05:01:17.240 +03:00 [INF] Executing action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) - Validation state: "Valid"
+2025-10-23 05:01:17.287 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-23 05:01:17.288 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-23 05:01:17.324 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-23 05:01:17.325 +03:00 [INF] Executed action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 84.6711ms.
+2025-10-23 05:01:17.326 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-23 05:01:17.334 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 153.2356ms
+2025-10-23 05:01:17.334 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 05:01:17.335 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 164.832ms
+2025-10-23 05:01:17.340 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-23 05:01:17.341 +03:00 [INF] CORS policy execution successful.
+2025-10-23 05:01:17.342 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 05:01:17.342 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-23 05:01:17.388 +03:00 [INF] Executing action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) - Validation state: "Valid"
+2025-10-23 05:01:17.435 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-23 05:01:17.436 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-23 05:01:17.441 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-23 05:01:17.454 +03:00 [INF] Executed action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 65.791ms.
+2025-10-23 05:01:17.455 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-23 05:01:17.458 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 113.5675ms
+2025-10-23 05:01:17.458 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 05:01:17.459 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 118.5527ms
+2025-10-23 12:23:54.747 +03:00 [INF] Starting web application
+2025-10-23 12:23:54.988 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-23 12:23:55.006 +03:00 [INF] Hosting environment: Development
+2025-10-23 12:23:55.008 +03:00 [INF] Content root path: C:\WedBush\Projects\New folder\LogCompilerBeta
+2025-10-23 12:23:55.046 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-23 12:23:55.610 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 577.1833ms
+2025-10-23 12:23:55.645 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-23 12:23:55.661 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 5.8856ms
+2025-10-23 12:23:55.668 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-23 12:23:55.732 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 64.1935ms
+2025-10-23 12:23:55.813 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-23 12:23:55.982 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 168.7976ms
+2025-10-23 12:24:57.238 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-23 12:24:57.248 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 9.79ms
+2025-10-23 12:24:57.255 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-23 12:24:57.263 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 7.6362ms
+2025-10-23 12:24:57.270 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-23 12:24:57.283 +03:00 [INF] CORS policy execution successful.
+2025-10-23 12:24:57.291 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 12:24:57.367 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-23 12:24:57.531 +03:00 [INF] Executing action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) - Validation state: "Valid"
+2025-10-23 12:24:57.675 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-23 12:24:57.723 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 68.7444ms
+2025-10-23 12:24:57.740 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-23 12:24:57.740 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-23 12:24:57.750 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 7.9441ms
+2025-10-23 12:24:57.755 +03:00 [INF] CORS policy execution successful.
+2025-10-23 12:24:57.756 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 12:24:57.761 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-23 12:24:57.836 +03:00 [INF] Executing action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) - Validation state: "Valid"
+2025-10-23 12:24:57.949 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-23 12:24:57.962 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-23 12:24:57.969 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-23 12:24:57.971 +03:00 [INF] Data has been saved successfully in memory. Total messages: 2
+2025-10-23 12:24:57.971 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-23 12:24:57.973 +03:00 [INF] Data has been saved successfully in memory. Total messages: 2
+2025-10-23 12:24:57.981 +03:00 [INF] Executed action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 439.7122ms.
+2025-10-23 12:24:57.982 +03:00 [INF] Executed action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 135.4104ms.
+2025-10-23 12:24:57.997 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-23 12:24:57.997 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-23 12:24:58.252 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-23 12:24:58.361 +03:00 [INF] CORS policy execution successful.
+2025-10-23 12:24:58.361 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 12:24:58.361 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-23 12:24:58.521 +03:00 [INF] Executing action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) - Validation state: "Valid"
+2025-10-23 12:24:58.526 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 1129.3872ms
+2025-10-23 12:24:58.526 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 597.7239ms
+2025-10-23 12:24:58.538 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 12:24:58.543 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 12:24:58.550 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 499 null application/json; charset=utf-8 1280.0034ms
+2025-10-23 12:24:58.550 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 809.3107ms
+2025-10-23 12:24:58.603 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-23 12:24:58.603 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-23 12:24:58.604 +03:00 [INF] Data has been saved successfully in memory. Total messages: 2
+2025-10-23 12:24:58.604 +03:00 [INF] Executed action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 82.2466ms.
+2025-10-23 12:24:58.605 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-23 12:24:58.607 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 244.8072ms
+2025-10-23 12:24:58.607 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 12:24:58.610 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 358.7247ms
+2025-10-23 12:25:44.709 +03:00 [INF] Starting web application
+2025-10-23 12:25:45.156 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-23 12:25:45.167 +03:00 [INF] Hosting environment: Development
+2025-10-23 12:25:45.170 +03:00 [INF] Content root path: C:\WedBush\Projects\New folder\LogCompilerBeta
+2025-10-23 12:25:45.238 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-23 12:25:46.031 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-23 12:25:46.031 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 751.1724ms
+2025-10-23 12:25:46.039 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 23.8483ms
+2025-10-23 12:25:46.041 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-23 12:25:46.160 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 118.9589ms
+2025-10-23 12:25:46.225 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-23 12:25:46.497 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 261.8363ms
+2025-10-23 12:25:51.748 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-23 12:25:51.773 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 24.6586ms
+2025-10-23 12:25:51.781 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile - null null
+2025-10-23 12:25:51.786 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile - 307 null null 4.85ms
+2025-10-23 12:25:51.786 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-23 12:25:51.797 +03:00 [INF] CORS policy execution successful.
+2025-10-23 12:25:51.809 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 12:25:51.850 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-23 12:25:52.187 +03:00 [INF] Executing action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) - Validation state: "Valid"
+2025-10-23 12:25:53.092 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-23 12:25:53.095 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-23 12:25:55.768 +03:00 [INF] Executed DbCommand (127ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-23 12:25:55.843 +03:00 [INF] Data has been saved successfully.
+2025-10-23 12:25:55.851 +03:00 [INF] Executed action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3657.3146ms.
+2025-10-23 12:25:55.862 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-23 12:25:55.897 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile - null null
+2025-10-23 12:25:55.901 +03:00 [INF] CORS policy execution successful.
+2025-10-23 12:25:55.901 +03:00 [INF] Executing endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 12:25:55.902 +03:00 [INF] Route matched with {action = "CompileFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage]]] CompileFileAsync() on controller LogCompilerBeta.Controllers.CompileFileController (LogCompilerBeta).
+2025-10-23 12:25:55.905 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 4043.709ms
+2025-10-23 12:25:55.918 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 12:25:55.973 +03:00 [INF] Executing action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) - Validation state: "Valid"
+2025-10-23 12:25:56.003 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 4216.81ms
+2025-10-23 12:25:56.035 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-23 12:25:56.037 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-23 12:25:56.160 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [OriginalMessages] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([CreatedAt], [Message], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Message])
+VALUES (i.[CreatedAt], i.[Message])
+OUTPUT INSERTED.[Id], i._Position;
+2025-10-23 12:25:56.166 +03:00 [INF] Data has been saved successfully.
+2025-10-23 12:25:56.168 +03:00 [INF] Executed action method LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 194.5362ms.
+2025-10-23 12:25:56.170 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LogCompilerBeta.Entities.YourProjectName.Models.OriginalMessage, LogCompilerBeta, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-23 12:25:56.172 +03:00 [INF] Executed action LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta) in 269.1064ms
+2025-10-23 12:25:56.172 +03:00 [INF] Executed endpoint 'LogCompilerBeta.Controllers.CompileFileController.CompileFileAsync (LogCompilerBeta)'
+2025-10-23 12:25:56.174 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 276.8097ms

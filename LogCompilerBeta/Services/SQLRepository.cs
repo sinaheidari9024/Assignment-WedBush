@@ -1,7 +1,6 @@
 ﻿using LogCompilerBeta.Entities.YourProjectName.Models;
 using LogCompilerBeta.Infrastructure;
 using LogCompilerBeta.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace LogCompilerBeta.Services
 {
@@ -33,15 +32,12 @@ namespace LogCompilerBeta.Services
 
             await _context.OriginalMessages.AddRangeAsync(originalMessages);
             var result = await _context.SaveChangesAsync() > 0;
-
+            if (result)
+            {
+                _logger.LogInformation("Data has been saved successfully.");
+            }
             return originalMessages;
         }
-
-        public async Task<List<OriginalMessage>> GetAllMessagesAsync()
-        {
-            return await _context.OriginalMessages.AsNoTracking().ToListAsync();
-        }
-
 
     }
 }

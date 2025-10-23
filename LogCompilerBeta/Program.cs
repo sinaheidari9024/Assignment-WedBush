@@ -28,7 +28,7 @@ bool useInMemory = repositorySettings.GetValue<bool>("UseInMemoryRepository");
 
 if (useInMemory)
 {
-    builder.Services.AddScoped<IDataRepository, InMemoryRepository>();
+    builder.Services.AddSingleton<IDataRepository, InMemoryRepository>();
     builder.Services.AddSingleton<InMemoryRepository>(); 
 }
 else

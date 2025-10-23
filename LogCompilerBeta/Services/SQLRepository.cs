@@ -1,6 +1,8 @@
 ﻿using LogCompilerBeta.Entities.YourProjectName.Models;
 using LogCompilerBeta.Infrastructure;
 using LogCompilerBeta.Interfaces;
+using LogCompilerBeta.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace LogCompilerBeta.Services
 {
@@ -17,11 +19,11 @@ namespace LogCompilerBeta.Services
             _context = context;
         }
 
-        public async Task<List<OriginalMessage>> SaveMessagesAsync(List<string> messages)
+        public async Task<bool> SaveMessagesAsync(List<string> messages)
         {
             if (messages == null || !messages.Any())
             {
-                return new List<OriginalMessage>();
+                return false;
             }
 
             var originalMessages = messages.Select(message => new OriginalMessage
@@ -35,8 +37,41 @@ namespace LogCompilerBeta.Services
             if (result)
             {
                 _logger.LogInformation("Data has been saved successfully.");
+                return true;
             }
-            return originalMessages;
+            return false;
+        }
+
+        public async Task<List<OriginalMessage>> GetMessagesAsync()
+        {
+            return await _context.OriginalMessages.AsNoTracking().ToListAsync();
+        }
+
+        public async Task<MessageResult> GetMessagesAsync(MessageQuery query)
+        {
+            var messagesQuery = _context.OriginalMessages.AsNoTracking().AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(query.SearchTerm))
+            {
+                messagesQuery = messagesQuery.Where(msg =>
+                    msg.Message.ToLower().Contains(query.SearchTerm.ToLower()));
+            }
+
+            var totalCount = await messagesQuery.CountAsync();
+
+            var messages = await messagesQuery
+                .OrderByDescending(msg => msg.CreatedAt)
+                .Skip((query.PageNumber - 1) * query.PageSize)
+                .Take(query.PageSize)
+                .ToListAsync();
+
+            return new MessageResult
+            {
+                Messages = messages,
+                TotalCount = totalCount,
+                PageNumber = query.PageNumber,
+                PageSize = query.PageSize
+            };
         }
 
     }

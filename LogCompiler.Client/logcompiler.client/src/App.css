@@ -22,6 +22,9 @@
     background-clip: text;
 }
 
+#root{
+    width:100%;
+}
 .log-info {
     display: flex;
     gap: 2rem;
@@ -245,7 +248,7 @@
 
     .app-title {
         font-size: 1.5rem;
-        padding: 1rem 0; 
+        padding: 1rem 0;
         line-height: 1.4;
     }
 
@@ -277,6 +280,7 @@
         align-self: flex-end;
     }
 }
+
 .app-title {
     margin: 0 0 1rem 0;
     font-size: 2rem;
@@ -285,7 +289,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    padding: 0.5rem 0; 
+    padding: 0.5rem 0;
     line-height: 1.2;
 }
 /* Add to App.css */
@@ -369,5 +373,208 @@
 @media (max-width: 480px) {
     .logo {
         height: 35px;
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid #374151;
+}
+
+.pagination-button {
+    background: #7c3aed;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    min-width: 100px;
+}
+
+    .pagination-button:hover:not(:disabled) {
+        background: #6d28d9;
+        transform: translateY(-1px);
+    }
+
+    .pagination-button:disabled {
+        background: #374151;
+        color: #6b7280;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+.pagination-pages {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.pagination-page {
+    background: #1a1625;
+    color: #e2e8f0;
+    border: 1px solid #374151;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    min-width: 40px;
+}
+
+    .pagination-page:hover {
+        border-color: #7c3aed;
+        color: #7c3aed;
+    }
+
+    .pagination-page.active {
+        background: #7c3aed;
+        color: white;
+        border-color: #7c3aed;
+    }
+
+/* Update search container for the save button */
+.search-container {
+    padding: 1rem 2rem;
+    background-color: #1a1625;
+    border-bottom: 1px solid #2d3748;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.save-button {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+    .save-button:hover:not(:disabled) {
+        background: #059669;
+        transform: translateY(-1px);
+    }
+
+    .save-button:disabled {
+        background: #374151;
+        color: #6b7280;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+/* Responsive pagination */
+@media (max-width: 768px) {
+    .pagination {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .pagination-pages {
+        order: -1;
+    }
+
+    .search-container {
+        flex-wrap: wrap;
+    }
+
+    .save-button {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagination-pages {
+        gap: 0.25rem;
+    }
+
+    .pagination-page {
+        padding: 0.4rem 0.8rem;
+        min-width: 35px;
+        font-size: 0.8rem;
+    }
+
+    .pagination-button {
+        padding: 0.6rem 1rem;
+        min-width: 80px;
+        font-size: 0.8rem;
+    }
+}
+/* Search input wrapper */
+.search-input-wrapper {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex: 1;
+    max-width: 500px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background-color: #0f0f0f;
+    border: 1px solid #374151;
+    border-radius: 0.5rem;
+    color: #e2e8f0;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+    .search-input:focus {
+        border-color: #7c3aed;
+        box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
+    }
+
+    .search-input::placeholder {
+        color: #6b7280;
+        font-size: 0.9rem;
+    }
+
+/* Update search container layout */
+.search-container {
+    padding: 1rem 2rem;
+    background-color: #1a1625;
+    border-bottom: 1px solid #2d3748;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Loading indicator for search */
+.search-loading {
+    color: #7c3aed;
+    font-size: 0.875rem;
+    margin-left: 0.5rem;
+}
+
+/* Responsive design for search */
+@media (max-width: 768px) {
+    .search-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .search-input-wrapper {
+        max-width: none;
+    }
+
+    .save-button {
+        align-self: flex-end;
     }
 }

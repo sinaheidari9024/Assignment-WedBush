@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogCompilerBeta", "LogCompi
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "logcompiler.client", "..\LogCompiler.Client\logcompiler.client.esproj", "{59F2D816-BC3E-4A5E-A79D-D1613050C9A1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogCompiler.Tests", "..\LogCompiler.Tests\LogCompiler.Tests.csproj", "{B0933935-1B2D-4FA8-A5A1-9F6A0A87C3A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,11 +20,14 @@ Global
 		{983FCD72-2DFD-4F50-A759-09F6F21B2763}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{983FCD72-2DFD-4F50-A759-09F6F21B2763}.Release|Any CPU.Build.0 = Release|Any CPU
 		{59F2D816-BC3E-4A5E-A79D-D1613050C9A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{59F2D816-BC3E-4A5E-A79D-D1613050C9A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59F2D816-BC3E-4A5E-A79D-D1613050C9A1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{59F2D816-BC3E-4A5E-A79D-D1613050C9A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59F2D816-BC3E-4A5E-A79D-D1613050C9A1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{59F2D816-BC3E-4A5E-A79D-D1613050C9A1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B0933935-1B2D-4FA8-A5A1-9F6A0A87C3A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0933935-1B2D-4FA8-A5A1-9F6A0A87C3A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0933935-1B2D-4FA8-A5A1-9F6A0A87C3A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0933935-1B2D-4FA8-A5A1-9F6A0A87C3A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

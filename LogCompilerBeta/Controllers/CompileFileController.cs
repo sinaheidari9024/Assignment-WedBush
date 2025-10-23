@@ -29,7 +29,7 @@ namespace LogCompilerBeta.Controllers
             _dataRepository = dataRepository;
         }
 
-        private readonly string filePath = "C:\\Washengton\\AVATAR3.messages.log";
+        private readonly string filePath = "C:\\Assignment\\AVATAR3.messages.log";
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<OriginalMessage>>> CompileFileAsync()

@@ -41,7 +41,7 @@ namespace LogCompilerBeta.Services
 
         }
 
-        public async Task<FixMessageResult> ReadInBatchesAsync(string filePath, int batchSize = 10_000)
+        public async Task<FixMessageResult> ReadInBatchesAsync(string filePath, int batchSize = 100_000)
         {
             if (string.IsNullOrWhiteSpace(filePath))
                 throw new ArgumentNullException(nameof(filePath));
@@ -78,7 +78,7 @@ namespace LogCompilerBeta.Services
                     if (batchCounter >= batchSize)
                     {
                         batchCounter = 0;
-                        await Task.Yield(); // Prevent blocking
+                        await Task.Yield();
                     }
                 }
 

@@ -298,3 +298,27 @@ OUTPUT INSERTED.[Id], i._Position;
 2025-10-23 03:16:39.304 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 104.5399ms
 2025-10-23 03:16:39.368 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
 2025-10-23 03:16:39.524 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 155.6688ms
+2025-10-23 03:19:55.449 +03:00 [INF] Starting web application
+2025-10-23 03:19:55.735 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-23 03:19:55.742 +03:00 [INF] Hosting environment: Development
+2025-10-23 03:19:55.744 +03:00 [INF] Content root path: C:\WedBush\Projects\New folder\LogCompilerBeta
+2025-10-23 03:19:55.775 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-23 03:19:56.665 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-23 03:19:56.719 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 952.7616ms
+2025-10-23 03:19:56.722 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 59.3908ms
+2025-10-23 03:19:56.726 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-23 03:19:56.861 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 135.1609ms
+2025-10-23 03:19:56.916 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-23 03:19:57.124 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 208.105ms
+2025-10-23 03:43:43.459 +03:00 [INF] Starting web application
+2025-10-23 03:43:43.782 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-23 03:43:43.793 +03:00 [INF] Hosting environment: Development
+2025-10-23 03:43:43.795 +03:00 [INF] Content root path: C:\WedBush\Projects\New folder\LogCompilerBeta
+2025-10-23 03:43:43.833 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-23 03:43:44.837 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 960.3128ms
+2025-10-23 03:43:45.146 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-23 03:43:45.149 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-23 03:43:45.181 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 24.0112ms
+2025-10-23 03:43:45.365 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 219.3256ms
+2025-10-23 03:43:45.431 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-23 03:43:45.674 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 243.1035ms

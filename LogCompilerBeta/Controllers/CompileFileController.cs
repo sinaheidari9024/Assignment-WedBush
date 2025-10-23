@@ -36,7 +36,7 @@ namespace LogCompilerBeta.Controllers
         {
             try
             {
-                var fileContent = await _contentReader.ReadAllAtOnceOptimizedAsync(filePath);
+                var fileContent = await _contentReader.ReadInBatchesAsync(filePath);
                 var messages = await _fileAnalyzer.FindOriginalMessageAsync(fileContent);
                 var originalMessages = await _dataRepository.SaveMessagesAsync(messages);
 

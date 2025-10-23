@@ -124,7 +124,6 @@ function App() {
                             <div key={msg.id} className="message-card">
                                 <div className="message-header">
                                     <span className="message-index">#{index + 1}</span>
-                                    <span className="message-id">ID: {msg.id}</span>
                                     <span className="timestamp">
                                         {new Date(msg.createdAt).toLocaleString()}
                                     </span>

@@ -11,6 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogCompiler.Tests", "..\Log
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5B5B0C91-D91D-4C11-A14B-6307C5126DB9}"
 	ProjectSection(SolutionItems) = preProject
+		Benchmark.txt = Benchmark.txt
 		ReadME.txt = ReadME.txt
 	EndProjectSection
 EndProject

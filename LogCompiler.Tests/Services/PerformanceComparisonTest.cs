@@ -286,9 +286,14 @@ public class PerformanceComparisonTest
             _output.WriteLine($"  ParallelBatches: {stopwatch2.ElapsedMilliseconds} ms");
 
             var stopwatch3 = Stopwatch.StartNew();
-            var result3 = await _contentReader.ReadWithChannelsAsync(filePath, 50_000, 4);
+            var result3 = await _contentReader.ReadInBatchesAsync(filePath, 50_000);
             stopwatch3.Stop();
-            _output.WriteLine($"  Channels: {stopwatch3.ElapsedMilliseconds} ms");
+            _output.WriteLine($"  BatchesAsync: {stopwatch3.ElapsedMilliseconds} ms");
+
+            var stopwatch4 = Stopwatch.StartNew();
+            var result4 = await _contentReader.ReadWithChannelsAsync(filePath, 50_000, 4);
+            stopwatch4.Stop();
+            _output.WriteLine($"  Channels: {stopwatch4.ElapsedMilliseconds} ms");
 
             times.Add(stopwatch1.ElapsedMilliseconds);
         }

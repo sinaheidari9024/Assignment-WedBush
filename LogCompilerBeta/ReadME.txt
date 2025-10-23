@@ -34,5 +34,27 @@ Open your browser and navigate to: http://localhost:5173/
 
 
 =============================================================
-Read File with different approach
+File Reading Approaches
 =============================================================
+1. Single Read Operation
+Suitable for: Files up to 200MB
+Method: Read entire file at once
+Use Case: Small to medium-sized files
+	-----------------------------------
+2. Sequential Batch Processing
+Suitable for: Files up to 1GB
+Method: Read file in batches using asynchronous sequential processing
+Use Case: Large files requiring memory efficiency
+	-----------------------------------
+3. Parallel Batch Processing
+Suitable for: Very large files
+Method: Read file in batches with synchronized parallel processing
+Advantage: Improved performance for big files
+	-----------------------------------
+4. Multi-Channel Async Processing
+Suitable for: Extremely large files
+Method: Concurrent file reading and processing using multiple channels
+Advantage: Maximum throughput for massive files
+=============================================================
+=============================================================
+I have documented the performance benchmark results for small size log files in the benchmark.txt file.

@@ -1,0 +1,68 @@
+This benchmark evaluates file reading performance 
+using different methods for SMALL FILE SIZES.
+
+****CompareAllMethodsPerformanceBatch50_000:
+=== PERFORMANCE SUMMARY ===
+ReadAllAtOnceOptimizedAsync: 10 ms
+ReadInBatchesAsync:         8 ms
+ReadInBatchesParallelAsync: 4 ms
+ReadWithChannelsAsync:      10 ms
+Improvement over baseline:
+ReadInBatchesAsync:         +20.0%
+ReadInBatchesParallelAsync: +60.0%
+ReadWithChannelsAsync:      +0.0%
+
+===============================================
+***CompareAllMethodsPerformanceBatch250_000Channel4
+=== PERFORMANCE SUMMARY ===
+ReadAllAtOnceOptimizedAsync: 6 ms
+ReadInBatchesAsync:         7 ms
+ReadInBatchesParallelAsync: 5 ms
+ReadWithChannelsAsync:      7 ms
+Improvement over baseline:
+ReadInBatchesAsync:         -16.7%
+ReadInBatchesParallelAsync: +16.7%
+ReadWithChannelsAsync:      -16.7%
+
+===============================================
+***CompareAllMethodsPerformanceBatch250_000Channel8
+=== PERFORMANCE SUMMARY ===
+ReadAllAtOnceOptimizedAsync: 272 ms
+ReadInBatchesAsync:         10 ms
+ReadInBatchesParallelAsync: 21 ms
+ReadWithChannelsAsync:      14 ms
+Improvement over baseline:
+ReadInBatchesAsync:         +96.3%
+ReadInBatchesParallelAsync: +92.3%
+ReadWithChannelsAsync:      +94.9%
+
+================================================
+***CompareChannelsWithDifferentParallelism:
+
+ Parallelism: 2 threads => Execution Time: 4 ms
+----------------------------
+Parallelism: 4 threads => Execution Time: 3 ms
+----------------------------
+Parallelism: 8 threads => Execution Time: 5 ms
+----------------------------
+Parallelism: 4 threads => Execution Time: 6 ms
+
+=================================================
+***WarmUpAndMultipleRuns
+Running 3 iterations...
+    Run 1:
+      ReadAllAtOnce: 8 ms
+      ParallelBatches: 20 ms
+      BatchesAsync: 13 ms
+      Channels: 7 ms
+    Run 2:
+      ReadAllAtOnce: 4 ms
+      ParallelBatches: 7 ms
+      BatchesAsync: 4 ms
+      Channels: 3 ms
+    Run 3:
+      ReadAllAtOnce: 5 ms
+      ParallelBatches: 5 ms
+      BatchesAsync: 5 ms
+      Channels: 2 ms
+

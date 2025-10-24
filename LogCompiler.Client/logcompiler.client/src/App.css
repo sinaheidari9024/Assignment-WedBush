@@ -578,3 +578,131 @@
         align-self: flex-end;
     }
 }
+
+/* File Upload Styles */
+.actions-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #1a1625;
+    border-bottom: 1px solid #2d3748;
+    gap: 1rem;
+}
+
+.file-upload-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.file-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-input-label {
+    background: #7c3aed;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+    .file-input-label:hover {
+        background: #6d28d9;
+        transform: translateY(-1px);
+    }
+
+.file-name {
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.upload-button {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+    .upload-button:hover:not(:disabled) {
+        background: #059669;
+        transform: translateY(-1px);
+    }
+
+    .upload-button:disabled {
+        background: #374151;
+        color: #6b7280;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+.save-button {
+    background: #8b5cf6;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+    .save-button:hover:not(:disabled) {
+        background: #7c3aed;
+        transform: translateY(-1px);
+    }
+
+    .save-button:disabled {
+        background: #374151;
+        color: #6b7280;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+
+@media (max-width: 768px) {
+    .actions-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .file-upload-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .file-input-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    .file-name {
+        text-align: center;
+    }
+}

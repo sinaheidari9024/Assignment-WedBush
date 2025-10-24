@@ -119,7 +119,7 @@ namespace LogCompilerBeta.Services
                     {
                         await ProcessBatchParallel(linesBatch, result);
                         linesBatch.Clear();
-                        await Task.Yield(); 
+                        await Task.Yield();
                     }
                 }
 
@@ -159,7 +159,183 @@ namespace LogCompilerBeta.Services
                 channel.Writer.Complete();
             });
 
-            
+
+            var consumers = Enumerable.Range(0, maxDegreeOfParallelism)
+                .Select(_ => Task.Run(async () =>
+                {
+                    var localRejects = new List<string>();
+                    var localExecutions = new List<string>();
+
+                    await foreach (var line in channel.Reader.ReadAllAsync())
+                    {
+                        var fixMessage = ExtractFixMessage(line);
+                        if (!string.IsNullOrEmpty(fixMessage))
+                        {
+                            if (ContainsMessageType(fixMessage, "3"))
+                            {
+                                localRejects.Add(line);
+                            }
+                            else if (ContainsMessageType(fixMessage, "8"))
+                            {
+                                localExecutions.Add(line);
+                            }
+                        }
+                    }
+
+                    // Merge results
+                    lock (result.RejectMessages) result.RejectMessages.AddRange(localRejects);
+                    lock (result.ExecutionReportMessages) result.ExecutionReportMessages.AddRange(localExecutions);
+                }))
+                .ToArray();
+
+            await Task.WhenAll(consumers);
+            await producer;
+
+            return result;
+        }
+
+
+        public async Task<FixMessageResult> ReadAllAtOnceOptimizedAsync(IFormFile file)
+        {
+            var result = new FixMessageResult();
+
+            using (var stream = file.OpenReadStream())
+            using (var reader = new StreamReader(stream))
+            {
+                string? line;
+                while ((line = await reader.ReadLineAsync()) != null)
+                {
+                    if (string.IsNullOrEmpty(line)) continue;
+
+                    var fixMessage = ExtractFixMessage(line);
+                    if (string.IsNullOrEmpty(fixMessage)) continue;
+
+                    if (ContainsMessageType(fixMessage, "3"))
+                    {
+                        result.RejectMessages.Add(line);
+                    }
+                    else if (ContainsMessageType(fixMessage, "8"))
+                    {
+                        result.ExecutionReportMessages.Add(line);
+                    }
+                }
+            }
+
+            _logger.LogInformation(
+                "Read {RejectCount} reject messages and {ExecutionReportCount} execution report messages",
+                result.RejectMessages.Count, result.ExecutionReportMessages.Count);
+
+            return result;
+        }
+
+        public async Task<FixMessageResult> ReadInBatchesAsync(IFormFile file, int batchSize = 100_000)
+        {
+            var result = new FixMessageResult();
+            var batchCounter = 0;
+
+            try
+            {
+                using var reader = new StreamReader(file.OpenReadStream());
+
+                string? line;
+                while ((line = await reader.ReadLineAsync().ConfigureAwait(false)) != null)
+                {
+                    if (string.IsNullOrEmpty(line)) continue;
+
+                    // Extract and check FIX message type
+                    var fixMessage = ExtractFixMessage(line);
+                    if (!string.IsNullOrEmpty(fixMessage))
+                    {
+                        if (ContainsMessageType(fixMessage, "3"))
+                        {
+                            result.RejectMessages.Add(line);
+                        }
+                        else if (ContainsMessageType(fixMessage, "8"))
+                        {
+                            result.ExecutionReportMessages.Add(line);
+                        }
+                    }
+
+                    batchCounter++;
+                    if (batchCounter >= batchSize)
+                    {
+                        batchCounter = 0;
+                        await Task.Yield();
+                    }
+                }
+
+                _logger.LogInformation("Processed file. Found {RejectCount} rejects and {ExecReportCount} execution reports",
+                     result.RejectMessages.Count, result.ExecutionReportMessages.Count);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error processing");
+                throw;
+            }
+        }
+
+        public async Task<FixMessageResult> ReadInBatchesParallelAsync(IFormFile file, int batchSize = 100_000)
+        {
+            var linesBatch = new List<string>(batchSize);
+            var result = new FixMessageResult();
+
+            try
+            {
+                using var reader = new StreamReader(file.OpenReadStream());
+
+                string? line;
+                while ((line = await reader.ReadLineAsync().ConfigureAwait(false)) != null)
+                {
+                    if (string.IsNullOrEmpty(line)) continue;
+                    linesBatch.Add(line);
+
+                    if (linesBatch.Count >= batchSize)
+                    {
+                        await ProcessBatchParallel(linesBatch, result);
+                        linesBatch.Clear();
+                        await Task.Yield();
+                    }
+                }
+
+                if (linesBatch.Count > 0)
+                {
+                    await ProcessBatchParallel(linesBatch, result);
+                }
+
+                _logger.LogInformation("Processed file. Found {RejectCount} rejects and {ExecReportCount} execution reports",
+                    result.RejectMessages.Count, result.ExecutionReportMessages.Count);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error processing");
+                throw;
+            }
+        }
+
+        public async Task<FixMessageResult> ReadWithChannelsAsync(IFormFile file, int batchSize = 100_000, int maxDegreeOfParallelism = 4)
+        {
+            var channel = Channel.CreateBounded<string>(batchSize * 2);
+            var result = new FixMessageResult();
+
+            var producer = Task.Run(async () =>
+            {
+                using var reader = new StreamReader(file.OpenReadStream());
+                string? line;
+                while ((line = await reader.ReadLineAsync().ConfigureAwait(false)) != null)
+                {
+                    if (!string.IsNullOrEmpty(line))
+                    {
+                        await channel.Writer.WriteAsync(line);
+                    }
+                }
+                channel.Writer.Complete();
+            });
+
+
             var consumers = Enumerable.Range(0, maxDegreeOfParallelism)
                 .Select(_ => Task.Run(async () =>
                 {

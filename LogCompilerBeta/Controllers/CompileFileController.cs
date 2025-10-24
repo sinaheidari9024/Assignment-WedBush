@@ -1,6 +1,9 @@
 using LogCompilerBeta.Interfaces;
 using LogCompilerBeta.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using System.Threading.Tasks;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -22,28 +25,41 @@ public class CompileFileController : ControllerBase
         _dataRepository = dataRepository;
     }
 
-    private readonly string filePath = "C:\\Assignment\\AVATAR3.messages.log";
-
-
-    [HttpPost]
-    public async Task<IActionResult> SaveMessages()
+    [HttpPost("upload")]
+    [Consumes("multipart/form-data")]
+    [RequestSizeLimit(1024 * 1024 * 1024)] // 1GB
+    [RequestFormLimits(MultipartBodyLengthLimit = 1024 * 1024 * 1024)]
+    public async Task<IActionResult> UploadFile(IFormFile file)
     {
+        if (file == null || file.Length == 0)
+        {
+            return BadRequest(new { error = "No file uploaded" });
+        }
+
+        var allowedExtensions = new[] { ".txt", ".log" };
+        var fileExtension = Path.GetExtension(file.FileName).ToLowerInvariant();
+
+        if (!allowedExtensions.Contains(fileExtension))
+        {
+            return BadRequest(new { error = "Only .txt and .log files are allowed" });
+        }
+
+        if (file.Length > 10 * 1024 * 1024)
+        {
+            return BadRequest(new { error = "File size must be less than 10MB" });
+        }
+
         try
         {
-            var fileContent = await _contentReader.ReadInBatchesAsync(filePath);
+            var fileContent = await _contentReader.ReadInBatchesAsync(file);
             var messages = await _fileAnalyzer.FindOriginalMessageAsync(fileContent);
             var result = await _dataRepository.SaveMessagesAsync(messages);
 
             return Ok(result);
         }
-        catch (FileNotFoundException ex)
-        {
-            _logger.LogWarning(ex, "File not found: {FilePath}", filePath);
-            return NotFound(new { error = "File not found", path = filePath });
-        }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error compiling file: {FilePath}", filePath);
+            _logger.LogError(ex, "Error processing uploaded file: {FileName}", file.FileName);
             return StatusCode(500, new { error = "An error occurred while processing the file" });
         }
     }

@@ -16,7 +16,8 @@ function App() {
     const [expandedMessages, setExpandedMessages] = useState<Set<number>>(new Set());
     const [currentPage, setCurrentPage] = useState(1);
     const [saveLoading, setSaveLoading] = useState(false);
-    const [initialLoad, setInitialLoad] = useState(false);
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const [uploadLoading, setUploadLoading] = useState(false);
 
     const searchTimeoutRef = useRef<number | null>(null);
 
@@ -43,8 +44,12 @@ function App() {
             setError("Failed to load messages. Please try again.");
         } finally {
             setLoading(false);
-            setInitialLoad(false);
         }
+    }, []);
+
+    // Initial load - fetch existing messages
+    useEffect(() => {
+        fetchMessages(1, "");
     }, []);
 
     const handleSaveMessages = async () => {
@@ -60,45 +65,106 @@ function App() {
             });
 
             if (!response.ok) {
-                throw new Error("Failed to save messages");
+                const errorData = await response.json();
+                throw new Error(errorData.error || `HTTP error: ${response.status}`);
             }
 
             const result = await response.json();
 
-            if (result) {
-                await fetchMessages(1, searchTerm);
+            if (typeof result === 'boolean') {
+                if (result) {
+                    await fetchMessages(1, searchTerm);
+                } else {
+                    throw new Error("Save operation returned false");
+                }
             } else {
-                throw new Error("Save operation failed");
+                throw new Error("Unexpected response format");
             }
         } catch (error) {
             console.error("Failed to save messages:", error);
-            setError("Failed to save messages. Please try again.");
+            setError(error instanceof Error ? error.message : "Failed to save messages. Please try again.");
         } finally {
             setSaveLoading(false);
         }
     };
 
-    // On initial load, automatically save sample messages then fetch
-    useEffect(() => {
-        const initializeData = async () => {
-            await handleSaveMessages();
-        };
-
-        if (initialLoad) {
-            initializeData();
+    const handleFileUpload = async () => {
+        if (!selectedFile) {
+            setError("Please select a file first");
+            return;
         }
-    }, [initialLoad]);
+
+        // Validate file type
+        const allowedTypes = ['.txt', '.log', 'text/plain'];
+        const fileExtension = selectedFile.name.toLowerCase().split('.').pop();
+
+        if (!allowedTypes.includes(`.${fileExtension}`) && !allowedTypes.includes(selectedFile.type)) {
+            setError("Please select a .txt or .log file");
+            return;
+        }
+
+        try {
+            setUploadLoading(true);
+            setError(null);
+
+            const formData = new FormData();
+            formData.append("file", selectedFile);
+
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 600000); //10 mins
+
+            const response = await fetch("/api/CompileFile/upload", {
+                method: "POST",
+                body: formData,
+                signal: controller.signal
+            });
+
+            clearTimeout(timeoutId);
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || `Upload failed: ${response.status}`);
+            }
+
+            const result = await response.json();
+
+            if (typeof result === 'boolean') {
+                if (result) {
+                    await fetchMessages(1, searchTerm);
+                    setSelectedFile(null);
+                    // Reset file input
+                    const fileInput = document.getElementById('file-upload') as HTMLInputElement;
+                    if (fileInput) fileInput.value = '';
+                } else {
+                    throw new Error("File processing failed");
+                }
+            } else {
+                throw new Error("Unexpected response format");
+            }
+        } catch (error) {
+            console.error("Failed to upload file:", error);
+            setError(error instanceof Error ? error.message : "Failed to upload file. Please try again.");
+        } finally {
+            setUploadLoading(false);
+        }
+    };
+
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0] || null;
+        setSelectedFile(file);
+        setError(null);
+    };
 
     const handleSearchInput = (term: string) => {
         setSearchTerm(term);
 
         // Clear existing timeout
         if (searchTimeoutRef.current) {
-            clearTimeout(searchTimeoutRef.current);
+            window.clearTimeout(searchTimeoutRef.current);
         }
 
         // Set new timeout for 2 seconds
-        searchTimeoutRef.current = setTimeout(() => {
+        searchTimeoutRef.current = window.setTimeout(() => {
             setCurrentPage(1);
             fetchMessages(1, term);
         }, 2000);
@@ -106,18 +172,16 @@ function App() {
 
     const handleClearSearch = () => {
         setSearchTerm("");
-        // Clear timeout when clearing search
         if (searchTimeoutRef.current) {
-            clearTimeout(searchTimeoutRef.current);
+            window.clearTimeout(searchTimeoutRef.current);
         }
         setCurrentPage(1);
         fetchMessages(1, "");
     };
 
     const handlePageChange = (page: number) => {
-        // Clear any pending search timeout when changing pages
         if (searchTimeoutRef.current) {
-            clearTimeout(searchTimeoutRef.current);
+            window.clearTimeout(searchTimeoutRef.current);
         }
         fetchMessages(page, searchTerm);
     };
@@ -136,12 +200,12 @@ function App() {
     useEffect(() => {
         return () => {
             if (searchTimeoutRef.current) {
-                clearTimeout(searchTimeoutRef.current);
+                window.clearTimeout(searchTimeoutRef.current);
             }
         };
     }, []);
 
-    if (loading && initialLoad) {
+    if (loading) {
         return (
             <div className="loading-container">
                 <div className="loading-spinner"></div>
@@ -182,6 +246,42 @@ function App() {
                 </div>
             </header>
 
+            {/* File Upload Section */}
+            <div className="actions-container">
+                <div className="file-upload-section">
+                    <div className="file-input-wrapper">
+                        <input
+                            type="file"
+                            id="file-upload"
+                            accept=".txt,.log,text/plain"
+                            onChange={handleFileChange}
+                            className="file-input"
+                        />
+                        <label htmlFor="file-upload" className="file-input-label">
+                            Choose File
+                        </label>
+                        <span className="file-name">
+                            {selectedFile ? selectedFile.name : "No file chosen"}
+                        </span>
+                    </div>
+                    <button
+                        onClick={handleFileUpload}
+                        disabled={!selectedFile || uploadLoading}
+                        className="upload-button"
+                    >
+                        {uploadLoading ? "Processing..." : "Upload & Process"}
+                    </button>
+                </div>
+
+                <button
+                    onClick={handleSaveMessages}
+                    disabled={saveLoading}
+                    className="save-button"
+                >
+                    {saveLoading ? "Saving..." : "Save Sample Messages"}
+                </button>
+            </div>
+
             {/* Search Bar */}
             <div className="search-container">
                 <div className="search-input-wrapper">
@@ -201,13 +301,6 @@ function App() {
                         </button>
                     )}
                 </div>
-                <button
-                    onClick={handleSaveMessages}
-                    disabled={saveLoading}
-                    className="save-button"
-                >
-                    {saveLoading ? "Saving..." : "Save Messages"}
-                </button>
             </div>
 
             {/* Error Display */}
@@ -266,28 +359,28 @@ function App() {
                                 </button>
 
                                 <div className="pagination-pages">
-                                        {Array.from({ length: Math.min(5, messages.totalPages) }, (_, i) => {
-                                            let pageNum: number; 
-                                            if (messages.totalPages <= 5) {
-                                                pageNum = i + 1;
-                                            } else if (currentPage <= 3) {
-                                                pageNum = i + 1;
-                                            } else if (currentPage >= messages.totalPages - 2) {
-                                                pageNum = messages.totalPages - 4 + i;
-                                            } else {
-                                                pageNum = currentPage - 2 + i;
-                                            }
+                                    {Array.from({ length: Math.min(5, messages.totalPages) }, (_, i) => {
+                                        let pageNum: number;
+                                        if (messages.totalPages <= 5) {
+                                            pageNum = i + 1;
+                                        } else if (currentPage <= 3) {
+                                            pageNum = i + 1;
+                                        } else if (currentPage >= messages.totalPages - 2) {
+                                            pageNum = messages.totalPages - 4 + i;
+                                        } else {
+                                            pageNum = currentPage - 2 + i;
+                                        }
 
-                                            return (
-                                                <button
-                                                    key={pageNum}
-                                                    onClick={() => handlePageChange(pageNum)}
-                                                    className={`pagination-page ${currentPage === pageNum ? 'active' : ''}`}
-                                                >
-                                                    {pageNum}
-                                                </button>
-                                            );
-                                        })}
+                                        return (
+                                            <button
+                                                key={pageNum}
+                                                onClick={() => handlePageChange(pageNum)}
+                                                className={`pagination-page ${currentPage === pageNum ? 'active' : ''}`}
+                                            >
+                                                {pageNum}
+                                            </button>
+                                        );
+                                    })}
                                 </div>
 
                                 <button

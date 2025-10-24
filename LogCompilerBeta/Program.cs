@@ -20,6 +20,7 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 
+
 builder.Services.AddScoped<IFileAnalyzer, FileAnalyzer>();
 builder.Services.AddScoped<IContentReader, ContentReader>();
 
@@ -37,6 +38,16 @@ else
     builder.Services.AddDbContext<ApplicationDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 }
+
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.Limits.MaxRequestBodySize = 1024 * 1024 * 1024; // 1GB
+});
+
+builder.Services.Configure<IISServerOptions>(options =>
+{
+    options.MaxRequestBodySize = 1024 * 1024 * 1024;
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

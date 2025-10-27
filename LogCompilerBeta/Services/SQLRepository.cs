@@ -21,11 +21,9 @@ namespace LogCompilerBeta.Services
 
         public async Task<bool> SaveMessagesAsync(List<string> messages)
         {
-            if (messages == null || !messages.Any())
-            {
+            if (messages == null || !messages.Any()) 
                 return false;
-            }
-
+            
             var originalMessages = messages.Select(message => new OriginalMessage
             {
                 Message = message,
@@ -40,11 +38,6 @@ namespace LogCompilerBeta.Services
                 return true;
             }
             return false;
-        }
-
-        public async Task<List<OriginalMessage>> GetMessagesAsync()
-        {
-            return await _context.OriginalMessages.AsNoTracking().ToListAsync();
         }
 
         public async Task<MessageResult> GetMessagesAsync(MessageQuery query)

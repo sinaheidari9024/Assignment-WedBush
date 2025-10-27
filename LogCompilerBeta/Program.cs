@@ -20,17 +20,14 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 
-
+builder.Services.AddContentReaders();
 builder.Services.AddScoped<IFileAnalyzer, FileAnalyzer>();
-builder.Services.AddScoped<IContentReader, ContentReader>();
 
 var repositorySettings = builder.Configuration.GetSection("RepositorySettings");
 bool useInMemory = repositorySettings.GetValue<bool>("UseInMemoryRepository");
-
 if (useInMemory)
 {
     builder.Services.AddSingleton<IDataRepository, InMemoryRepository>();
-    builder.Services.AddSingleton<InMemoryRepository>(); 
 }
 else
 {
@@ -38,6 +35,7 @@ else
     builder.Services.AddDbContext<ApplicationDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 }
+
 
 builder.WebHost.ConfigureKestrel(serverOptions =>
 {
@@ -68,7 +66,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

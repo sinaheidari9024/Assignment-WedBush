@@ -1,12 +1,11 @@
-
-export interface OriginalMessage {
+export interface Message {
     id: number;
     message: string;
     createdAt: string;
 }
 
 export interface MessageResult {
-    messages: OriginalMessage[];
+    messages: Message[];
     totalCount: number;
     pageNumber: number;
     pageSize: number;

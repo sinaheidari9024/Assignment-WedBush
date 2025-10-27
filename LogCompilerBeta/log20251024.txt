@@ -3585,3 +3585,563 @@ OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
 2025-10-24 18:40:18.266 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 45.2028ms
 2025-10-24 18:40:18.266 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
 2025-10-24 18:40:18.267 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 50.2741ms
+2025-10-24 19:33:02.844 +03:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-10-24 19:33:03.185 +03:00 [INF] Starting web application
+2025-10-24 19:33:03.495 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-24 19:33:03.526 +03:00 [INF] Hosting environment: Development
+2025-10-24 19:33:03.543 +03:00 [INF] Content root path: C:\WedBush\Projects\LogCompiler\LogCompilerBeta
+2025-10-24 19:33:03.599 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-24 19:33:04.336 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 757.2455ms
+2025-10-24 19:33:04.476 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-24 19:33:04.493 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 6.1259ms
+2025-10-24 19:33:04.520 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-24 19:33:04.642 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 122.363ms
+2025-10-24 19:33:06.742 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-24 19:33:07.246 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 503.2801ms
+2025-10-24 22:02:20.026 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:02:20.034 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 10.2891ms
+2025-10-24 22:02:20.058 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:02:20.069 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:02:20.078 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:02:20.126 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:02:20.255 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:02:20.284 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 23.3467ms.
+2025-10-24 22:02:20.294 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:02:20.316 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 185.3978ms
+2025-10-24 22:02:20.316 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:02:20.318 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 259.6161ms
+2025-10-24 22:02:53.494 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CompileFile/upload - multipart/form-data; boundary=----WebKitFormBoundaryQ7ouMlBLxjLLSG5Z 279453
+2025-10-24 22:02:53.499 +03:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-10-24 22:02:53.519 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/CompileFile/upload - 307 null null 25.6603ms
+2025-10-24 22:02:53.523 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44315/api/CompileFile/upload - multipart/form-data; boundary=----WebKitFormBoundaryQ7ouMlBLxjLLSG5Z 279453
+2025-10-24 22:02:53.526 +03:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-10-24 22:02:53.528 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:02:53.530 +03:00 [INF] Executing endpoint 'CompileFileController.UploadFile (LogCompilerBeta)'
+2025-10-24 22:02:53.554 +03:00 [INF] Route matched with {action = "UploadFile", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadFile(Microsoft.AspNetCore.Http.IFormFile) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:02:53.555 +03:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-10-24 22:02:53.763 +03:00 [INF] Executing action method CompileFileController.UploadFile (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:02:53.799 +03:00 [INF] Processed file. Found 2 rejects and 2 execution reports
+2025-10-24 22:02:53.802 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-24 22:02:53.805 +03:00 [INF] Saved 2 messages
+2025-10-24 22:02:53.808 +03:00 [INF] Executed action method CompileFileController.UploadFile (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 45.419ms.
+2025-10-24 22:02:53.811 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Boolean'.
+2025-10-24 22:02:53.818 +03:00 [INF] Executed action CompileFileController.UploadFile (LogCompilerBeta) in 263.7527ms
+2025-10-24 22:02:53.819 +03:00 [INF] Executed endpoint 'CompileFileController.UploadFile (LogCompilerBeta)'
+2025-10-24 22:02:53.825 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44315/api/CompileFile/upload - 200 null application/json; charset=utf-8 302.6627ms
+2025-10-24 22:02:53.831 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:02:53.833 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 1.9404ms
+2025-10-24 22:02:53.837 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:02:53.839 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:02:53.839 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:02:53.840 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:02:53.894 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:02:53.899 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 4.9709ms.
+2025-10-24 22:02:53.900 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:02:53.905 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 64.6876ms
+2025-10-24 22:02:53.905 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:02:53.905 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 68.1511ms
+2025-10-24 22:33:38.540 +03:00 [WRN] Increasing the MaxRequestBodySize conflicts with the max value for IIS limit maxAllowedContentLength. HTTP requests that have a content length greater than maxAllowedContentLength will still be rejected by IIS. You can disable the limit by either removing or setting the maxAllowedContentLength value to a higher limit.
+2025-10-24 22:33:38.996 +03:00 [INF] Starting web application
+2025-10-24 22:33:39.338 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-24 22:33:39.376 +03:00 [INF] Hosting environment: Development
+2025-10-24 22:33:39.378 +03:00 [INF] Content root path: C:\WedBush\Projects\LogCompiler\LogCompilerBeta
+2025-10-24 22:33:39.454 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/index.html - null null
+2025-10-24 22:33:39.448 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CompileFile - application/json 0
+2025-10-24 22:33:39.711 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/CompileFile - 307 null null 283.8926ms
+2025-10-24 22:33:39.903 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:44315/api/CompileFile - null null
+2025-10-24 22:33:39.916 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:39.924 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:44315/api/CompileFile - 204 null null 20.7745ms
+2025-10-24 22:33:40.007 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44315/api/CompileFile - application/json 0
+2025-10-24 22:33:40.082 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:40.092 +03:00 [INF] Executing endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:40.167 +03:00 [INF] Route matched with {action = "SaveMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SaveMessages() on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:40.454 +03:00 [INF] Executing action method CompileFileController.SaveMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:40.661 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-24 22:33:40.666 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-24 22:33:40.669 +03:00 [INF] Saved 2 messages
+2025-10-24 22:33:40.677 +03:00 [INF] Executed action method CompileFileController.SaveMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 214.7489ms.
+2025-10-24 22:33:40.698 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Boolean'.
+2025-10-24 22:33:40.762 +03:00 [INF] Executed action CompileFileController.SaveMessages (LogCompilerBeta) in 588.2734ms
+2025-10-24 22:33:40.762 +03:00 [INF] Executed endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:40.763 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 756.3796ms
+2025-10-24 22:33:40.798 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:40.806 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 8.2222ms
+2025-10-24 22:33:40.812 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:40.813 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:40.813 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:40.849 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:40.961 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:41.014 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 52.7572ms.
+2025-10-24 22:33:41.024 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:33:41.039 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/index.html - 200 null text/html;charset=utf-8 1614.0132ms
+2025-10-24 22:33:41.139 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 289.317ms
+2025-10-24 22:33:41.139 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:41.140 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 328.0936ms
+2025-10-24 22:33:41.142 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-24 22:33:41.144 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/_vs/browserLink - null null
+2025-10-24 22:33:41.147 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 5.4954ms
+2025-10-24 22:33:41.322 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/_vs/browserLink - 200 null text/javascript; charset=UTF-8 178.6151ms
+2025-10-24 22:33:41.398 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - null null
+2025-10-24 22:33:41.810 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 412.2217ms
+2025-10-24 22:33:43.426 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CompileFile - application/json 0
+2025-10-24 22:33:43.437 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/CompileFile - 307 null null 10.5548ms
+2025-10-24 22:33:43.442 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44315/api/CompileFile - application/json 0
+2025-10-24 22:33:43.443 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:43.444 +03:00 [INF] Executing endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:43.444 +03:00 [INF] Route matched with {action = "SaveMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SaveMessages() on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:43.508 +03:00 [INF] Executing action method CompileFileController.SaveMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:43.657 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-24 22:33:43.658 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-24 22:33:43.658 +03:00 [INF] Saved 2 messages
+2025-10-24 22:33:43.659 +03:00 [INF] Executed action method CompileFileController.SaveMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 149.6967ms.
+2025-10-24 22:33:43.663 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Boolean'.
+2025-10-24 22:33:43.667 +03:00 [INF] Executed action CompileFileController.SaveMessages (LogCompilerBeta) in 223.1682ms
+2025-10-24 22:33:43.668 +03:00 [INF] Executed endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:43.674 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 231.2968ms
+2025-10-24 22:33:43.683 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:43.688 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 4.9263ms
+2025-10-24 22:33:43.691 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:43.692 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:43.692 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:43.692 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:43.745 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:43.750 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 4.0602ms.
+2025-10-24 22:33:43.750 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:33:43.751 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 58.6044ms
+2025-10-24 22:33:43.752 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:43.753 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 61.3462ms
+2025-10-24 22:33:44.479 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CompileFile - application/json 0
+2025-10-24 22:33:44.491 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/CompileFile - 307 null null 11.7481ms
+2025-10-24 22:33:44.508 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44315/api/CompileFile - application/json 0
+2025-10-24 22:33:44.510 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:44.510 +03:00 [INF] Executing endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:44.510 +03:00 [INF] Route matched with {action = "SaveMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SaveMessages() on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:44.624 +03:00 [INF] Executing action method CompileFileController.SaveMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:44.697 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-24 22:33:44.697 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-24 22:33:44.698 +03:00 [INF] Saved 2 messages
+2025-10-24 22:33:44.698 +03:00 [INF] Executed action method CompileFileController.SaveMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 73.7046ms.
+2025-10-24 22:33:44.699 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Boolean'.
+2025-10-24 22:33:44.701 +03:00 [INF] Executed action CompileFileController.SaveMessages (LogCompilerBeta) in 190.548ms
+2025-10-24 22:33:44.701 +03:00 [INF] Executed endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:44.702 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 193.2079ms
+2025-10-24 22:33:44.722 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:44.725 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 3.3653ms
+2025-10-24 22:33:44.737 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:44.738 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:44.738 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:44.738 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:44.789 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:44.792 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3.0605ms.
+2025-10-24 22:33:44.793 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:33:44.794 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 55.2761ms
+2025-10-24 22:33:44.794 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:44.795 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 58.0002ms
+2025-10-24 22:33:45.491 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CompileFile - application/json 0
+2025-10-24 22:33:45.497 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/CompileFile - 307 null null 5.4241ms
+2025-10-24 22:33:45.510 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:44315/api/CompileFile - null null
+2025-10-24 22:33:45.510 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:45.511 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:44315/api/CompileFile - 204 null null 0.807ms
+2025-10-24 22:33:45.525 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44315/api/CompileFile - application/json 0
+2025-10-24 22:33:45.525 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:45.525 +03:00 [INF] Executing endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:45.525 +03:00 [INF] Route matched with {action = "SaveMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SaveMessages() on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:45.626 +03:00 [INF] Executing action method CompileFileController.SaveMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:45.740 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-24 22:33:45.740 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-24 22:33:45.740 +03:00 [INF] Saved 2 messages
+2025-10-24 22:33:45.741 +03:00 [INF] Executed action method CompileFileController.SaveMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 115.2224ms.
+2025-10-24 22:33:45.741 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Boolean'.
+2025-10-24 22:33:45.744 +03:00 [INF] Executed action CompileFileController.SaveMessages (LogCompilerBeta) in 217.9733ms
+2025-10-24 22:33:45.744 +03:00 [INF] Executed endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:45.745 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 219.5331ms
+2025-10-24 22:33:45.758 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:45.761 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 2.8027ms
+2025-10-24 22:33:45.779 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:45.780 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:45.780 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:45.780 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:45.839 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:45.841 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1.956ms.
+2025-10-24 22:33:45.841 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:33:45.842 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 62.1409ms
+2025-10-24 22:33:45.842 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:45.842 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 64.0081ms
+2025-10-24 22:33:46.772 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CompileFile - application/json 0
+2025-10-24 22:33:46.778 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/CompileFile - 307 null null 6.3838ms
+2025-10-24 22:33:46.792 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44315/api/CompileFile - application/json 0
+2025-10-24 22:33:46.792 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:46.792 +03:00 [INF] Executing endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:46.793 +03:00 [INF] Route matched with {action = "SaveMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SaveMessages() on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:46.871 +03:00 [INF] Executing action method CompileFileController.SaveMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:46.939 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-24 22:33:46.939 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-24 22:33:46.939 +03:00 [INF] Saved 2 messages
+2025-10-24 22:33:46.940 +03:00 [INF] Executed action method CompileFileController.SaveMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 68.3807ms.
+2025-10-24 22:33:46.940 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Boolean'.
+2025-10-24 22:33:46.942 +03:00 [INF] Executed action CompileFileController.SaveMessages (LogCompilerBeta) in 149.5651ms
+2025-10-24 22:33:46.943 +03:00 [INF] Executed endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:46.944 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 151.6763ms
+2025-10-24 22:33:46.963 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:46.975 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 11.5268ms
+2025-10-24 22:33:46.993 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:46.993 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:46.994 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:46.994 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:47.126 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:47.128 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2.2849ms.
+2025-10-24 22:33:47.128 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:33:47.130 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 136.2062ms
+2025-10-24 22:33:47.130 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:47.130 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 137.2472ms
+2025-10-24 22:33:48.946 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CompileFile - application/json 0
+2025-10-24 22:33:48.962 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/CompileFile - 307 null null 16.2306ms
+2025-10-24 22:33:48.996 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44315/api/CompileFile - application/json 0
+2025-10-24 22:33:48.997 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:48.997 +03:00 [INF] Executing endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:48.997 +03:00 [INF] Route matched with {action = "SaveMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SaveMessages() on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:49.090 +03:00 [INF] Executing action method CompileFileController.SaveMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:49.160 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-24 22:33:49.160 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-24 22:33:49.160 +03:00 [INF] Saved 2 messages
+2025-10-24 22:33:49.160 +03:00 [INF] Executed action method CompileFileController.SaveMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 69.7509ms.
+2025-10-24 22:33:49.161 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Boolean'.
+2025-10-24 22:33:49.161 +03:00 [INF] Executed action CompileFileController.SaveMessages (LogCompilerBeta) in 164.3694ms
+2025-10-24 22:33:49.161 +03:00 [INF] Executed endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:49.162 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 165.6866ms
+2025-10-24 22:33:49.179 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:49.184 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 4.8885ms
+2025-10-24 22:33:49.189 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:49.193 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:49.194 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:49.194 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:49.255 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:49.259 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2.9396ms.
+2025-10-24 22:33:49.259 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:33:49.261 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 66.2101ms
+2025-10-24 22:33:49.261 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:49.261 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 72.3722ms
+2025-10-24 22:33:49.721 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CompileFile - application/json 0
+2025-10-24 22:33:49.724 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/CompileFile - 307 null null 1.7889ms
+2025-10-24 22:33:49.731 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44315/api/CompileFile - application/json 0
+2025-10-24 22:33:49.732 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:49.732 +03:00 [INF] Executing endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:49.732 +03:00 [INF] Route matched with {action = "SaveMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SaveMessages() on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:49.798 +03:00 [INF] Executing action method CompileFileController.SaveMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:49.972 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-24 22:33:49.972 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-24 22:33:49.972 +03:00 [INF] Saved 2 messages
+2025-10-24 22:33:49.972 +03:00 [INF] Executed action method CompileFileController.SaveMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 174.1356ms.
+2025-10-24 22:33:49.973 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Boolean'.
+2025-10-24 22:33:49.976 +03:00 [INF] Executed action CompileFileController.SaveMessages (LogCompilerBeta) in 243.2485ms
+2025-10-24 22:33:49.977 +03:00 [INF] Executed endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:49.978 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 246.8632ms
+2025-10-24 22:33:49.986 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:49.988 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 1.095ms
+2025-10-24 22:33:49.992 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:49.992 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:49.993 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:49.994 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:50.052 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:50.055 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3.5602ms.
+2025-10-24 22:33:50.055 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:33:50.056 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 62.5281ms
+2025-10-24 22:33:50.057 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:50.057 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 64.7021ms
+2025-10-24 22:33:50.439 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CompileFile - application/json 0
+2025-10-24 22:33:50.443 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/CompileFile - 307 null null 3.0168ms
+2025-10-24 22:33:50.457 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44315/api/CompileFile - application/json 0
+2025-10-24 22:33:50.457 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:50.457 +03:00 [INF] Executing endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:50.458 +03:00 [INF] Route matched with {action = "SaveMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SaveMessages() on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:50.803 +03:00 [INF] Executing action method CompileFileController.SaveMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:52.411 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-24 22:33:52.412 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-24 22:33:52.412 +03:00 [INF] Saved 2 messages
+2025-10-24 22:33:52.412 +03:00 [INF] Executed action method CompileFileController.SaveMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1608.9402ms.
+2025-10-24 22:33:52.412 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Boolean'.
+2025-10-24 22:33:52.417 +03:00 [INF] Executed action CompileFileController.SaveMessages (LogCompilerBeta) in 1959.1654ms
+2025-10-24 22:33:52.417 +03:00 [INF] Executed endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:52.418 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 1961.4342ms
+2025-10-24 22:33:52.427 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:52.428 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 1.4206ms
+2025-10-24 22:33:52.446 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:52.447 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:52.447 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:52.447 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:52.612 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:52.617 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 4.6262ms.
+2025-10-24 22:33:52.617 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:33:52.619 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 171.7185ms
+2025-10-24 22:33:52.619 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:52.619 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 173.4471ms
+2025-10-24 22:33:53.809 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CompileFile - application/json 0
+2025-10-24 22:33:53.811 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/CompileFile - 307 null null 2.1583ms
+2025-10-24 22:33:53.841 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:44315/api/CompileFile - null null
+2025-10-24 22:33:53.841 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:53.842 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:44315/api/CompileFile - 204 null null 1.2369ms
+2025-10-24 22:33:53.858 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44315/api/CompileFile - application/json 0
+2025-10-24 22:33:53.858 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:53.858 +03:00 [INF] Executing endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:53.858 +03:00 [INF] Route matched with {action = "SaveMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SaveMessages() on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:53.952 +03:00 [INF] Executing action method CompileFileController.SaveMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:54.026 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-24 22:33:54.026 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-24 22:33:54.027 +03:00 [INF] Saved 2 messages
+2025-10-24 22:33:54.027 +03:00 [INF] Executed action method CompileFileController.SaveMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 73.9131ms.
+2025-10-24 22:33:54.027 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Boolean'.
+2025-10-24 22:33:54.028 +03:00 [INF] Executed action CompileFileController.SaveMessages (LogCompilerBeta) in 169.7938ms
+2025-10-24 22:33:54.028 +03:00 [INF] Executed endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:54.028 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 170.8062ms
+2025-10-24 22:33:54.043 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:54.048 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 5.0952ms
+2025-10-24 22:33:54.094 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:54.094 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:54.094 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:54.094 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:54.192 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:54.195 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2.6976ms.
+2025-10-24 22:33:54.195 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:33:54.196 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 101.3145ms
+2025-10-24 22:33:54.197 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:54.197 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 103.6314ms
+2025-10-24 22:33:54.656 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CompileFile - application/json 0
+2025-10-24 22:33:54.669 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/CompileFile - 307 null null 12.9906ms
+2025-10-24 22:33:54.687 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44315/api/CompileFile - application/json 0
+2025-10-24 22:33:54.687 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:54.688 +03:00 [INF] Executing endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:54.688 +03:00 [INF] Route matched with {action = "SaveMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SaveMessages() on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:54.832 +03:00 [INF] Executing action method CompileFileController.SaveMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:54.903 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-24 22:33:54.904 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-24 22:33:54.904 +03:00 [INF] Saved 2 messages
+2025-10-24 22:33:54.904 +03:00 [INF] Executed action method CompileFileController.SaveMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 71.1452ms.
+2025-10-24 22:33:54.904 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Boolean'.
+2025-10-24 22:33:54.905 +03:00 [INF] Executed action CompileFileController.SaveMessages (LogCompilerBeta) in 216.6116ms
+2025-10-24 22:33:54.905 +03:00 [INF] Executed endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:54.905 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 218.9796ms
+2025-10-24 22:33:54.917 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:54.919 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 1.2499ms
+2025-10-24 22:33:54.922 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:54.923 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:54.924 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:54.924 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:54.977 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:54.980 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2.6908ms.
+2025-10-24 22:33:54.980 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:33:54.982 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 58.1477ms
+2025-10-24 22:33:54.982 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:54.982 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 59.8462ms
+2025-10-24 22:33:55.481 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CompileFile - application/json 0
+2025-10-24 22:33:55.486 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/CompileFile - 307 null null 4.917ms
+2025-10-24 22:33:55.503 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44315/api/CompileFile - application/json 0
+2025-10-24 22:33:55.503 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:55.504 +03:00 [INF] Executing endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:55.505 +03:00 [INF] Route matched with {action = "SaveMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SaveMessages() on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:55.583 +03:00 [INF] Executing action method CompileFileController.SaveMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:55.695 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-24 22:33:55.695 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-24 22:33:55.695 +03:00 [INF] Saved 2 messages
+2025-10-24 22:33:55.695 +03:00 [INF] Executed action method CompileFileController.SaveMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 111.981ms.
+2025-10-24 22:33:55.695 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Boolean'.
+2025-10-24 22:33:55.698 +03:00 [INF] Executed action CompileFileController.SaveMessages (LogCompilerBeta) in 193.4411ms
+2025-10-24 22:33:55.698 +03:00 [INF] Executed endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:55.699 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 195.6754ms
+2025-10-24 22:33:55.710 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:55.711 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 1.0561ms
+2025-10-24 22:33:55.719 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:55.720 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:55.720 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:55.720 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:55.798 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:55.802 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3.9518ms.
+2025-10-24 22:33:55.802 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:33:55.804 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 83.7968ms
+2025-10-24 22:33:55.804 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:55.804 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 85.3563ms
+2025-10-24 22:33:56.276 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CompileFile - application/json 0
+2025-10-24 22:33:56.285 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/CompileFile - 307 null null 9.1644ms
+2025-10-24 22:33:56.289 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44315/api/CompileFile - application/json 0
+2025-10-24 22:33:56.292 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:56.292 +03:00 [INF] Executing endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:56.293 +03:00 [INF] Route matched with {action = "SaveMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SaveMessages() on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:56.406 +03:00 [INF] Executing action method CompileFileController.SaveMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:56.626 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-24 22:33:56.626 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-24 22:33:56.626 +03:00 [INF] Saved 2 messages
+2025-10-24 22:33:56.626 +03:00 [INF] Executed action method CompileFileController.SaveMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 220.4168ms.
+2025-10-24 22:33:56.626 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Boolean'.
+2025-10-24 22:33:56.627 +03:00 [INF] Executed action CompileFileController.SaveMessages (LogCompilerBeta) in 333.6173ms
+2025-10-24 22:33:57.895 +03:00 [INF] Executed endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:57.895 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 1606.1452ms
+2025-10-24 22:33:57.906 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:57.908 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 2.4695ms
+2025-10-24 22:33:57.958 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:57.959 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:57.959 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:57.959 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:58.048 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:58.051 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3.5093ms.
+2025-10-24 22:33:58.051 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:33:58.053 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 94.0499ms
+2025-10-24 22:33:58.053 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:58.054 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 95.1662ms
+2025-10-24 22:33:58.672 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CompileFile - application/json 0
+2025-10-24 22:33:58.674 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/CompileFile - 307 null null 2.4137ms
+2025-10-24 22:33:58.691 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44315/api/CompileFile - application/json 0
+2025-10-24 22:33:58.691 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:58.694 +03:00 [INF] Executing endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:58.697 +03:00 [INF] Route matched with {action = "SaveMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SaveMessages() on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:58.754 +03:00 [INF] Executing action method CompileFileController.SaveMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:58.944 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-24 22:33:58.944 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-24 22:33:58.947 +03:00 [INF] Saved 2 messages
+2025-10-24 22:33:58.947 +03:00 [INF] Executed action method CompileFileController.SaveMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 192.676ms.
+2025-10-24 22:33:58.947 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Boolean'.
+2025-10-24 22:33:58.949 +03:00 [INF] Executed action CompileFileController.SaveMessages (LogCompilerBeta) in 251.8585ms
+2025-10-24 22:33:58.949 +03:00 [INF] Executed endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:33:58.951 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 259.6891ms
+2025-10-24 22:33:58.960 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:58.962 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 1.9267ms
+2025-10-24 22:33:58.968 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:33:58.969 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:33:58.969 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:58.969 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:33:59.044 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:33:59.048 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 4.0329ms.
+2025-10-24 22:33:59.048 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:33:59.050 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 80.6044ms
+2025-10-24 22:33:59.050 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:33:59.050 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 82.3418ms
+2025-10-24 22:34:04.608 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=2&pageSize=20&search= - null null
+2025-10-24 22:34:04.609 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=2&pageSize=20&search= - 307 null null 1.1246ms
+2025-10-24 22:34:04.616 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=2&pageSize=20&search= - null null
+2025-10-24 22:34:04.616 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:34:04.616 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:34:04.618 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:34:04.673 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:34:04.675 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2.2227ms.
+2025-10-24 22:34:04.676 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:34:04.677 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 58.6506ms
+2025-10-24 22:34:04.677 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:34:04.677 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=2&pageSize=20&search= - 200 null application/json; charset=utf-8 61.3403ms
+2025-10-24 22:34:06.735 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:34:06.737 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 2.1717ms
+2025-10-24 22:34:06.749 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:34:06.749 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:34:06.749 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:34:06.750 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:34:06.785 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:34:06.787 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1.8252ms.
+2025-10-24 22:34:06.787 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:34:06.789 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 39.1412ms
+2025-10-24 22:34:06.789 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:34:06.789 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 40.338ms
+2025-10-24 22:36:51.880 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CompileFile - application/json 0
+2025-10-24 22:36:51.891 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/CompileFile - 307 null null 12.1363ms
+2025-10-24 22:36:51.901 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:44315/api/CompileFile - null null
+2025-10-24 22:36:51.902 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:36:51.903 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:44315/api/CompileFile - 204 null null 1.7288ms
+2025-10-24 22:36:51.905 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44315/api/CompileFile - application/json 0
+2025-10-24 22:36:51.905 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:36:51.905 +03:00 [INF] Executing endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:36:51.905 +03:00 [INF] Route matched with {action = "SaveMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SaveMessages() on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:36:51.951 +03:00 [INF] Executing action method CompileFileController.SaveMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:36:52.069 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-24 22:36:52.069 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-24 22:36:52.069 +03:00 [INF] Saved 2 messages
+2025-10-24 22:36:52.070 +03:00 [INF] Executed action method CompileFileController.SaveMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 118.221ms.
+2025-10-24 22:36:52.070 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Boolean'.
+2025-10-24 22:36:52.071 +03:00 [INF] Executed action CompileFileController.SaveMessages (LogCompilerBeta) in 165.415ms
+2025-10-24 22:36:52.071 +03:00 [INF] Executed endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:36:52.072 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 167.2348ms
+2025-10-24 22:36:52.087 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:36:52.088 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 1.1823ms
+2025-10-24 22:36:52.094 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:36:52.095 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:36:52.095 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:36:52.095 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:36:52.143 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:36:52.148 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3.9984ms.
+2025-10-24 22:36:52.148 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:36:52.151 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 55.9093ms
+2025-10-24 22:36:52.151 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:36:52.152 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 57.7043ms
+2025-10-24 22:37:08.381 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CompileFile - application/json 0
+2025-10-24 22:37:08.383 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/CompileFile - 307 null null 1.6184ms
+2025-10-24 22:37:08.399 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:44315/api/CompileFile - null null
+2025-10-24 22:37:08.399 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:37:08.400 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:44315/api/CompileFile - 204 null null 0.5888ms
+2025-10-24 22:37:08.404 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44315/api/CompileFile - application/json 0
+2025-10-24 22:37:08.404 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:37:08.404 +03:00 [INF] Executing endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:37:08.404 +03:00 [INF] Route matched with {action = "SaveMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SaveMessages() on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:37:08.442 +03:00 [INF] Executing action method CompileFileController.SaveMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:37:08.498 +03:00 [INF] Processed file: C:\Assignment\AVATAR3.messages.log. Found 2 rejects and 2 execution reports
+2025-10-24 22:37:08.498 +03:00 [INF] Found 2 matching execution reports for rejects
+2025-10-24 22:37:08.498 +03:00 [INF] Saved 2 messages
+2025-10-24 22:37:08.499 +03:00 [INF] Executed action method CompileFileController.SaveMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 56.7026ms.
+2025-10-24 22:37:08.499 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Boolean'.
+2025-10-24 22:37:08.500 +03:00 [INF] Executed action CompileFileController.SaveMessages (LogCompilerBeta) in 95.5672ms
+2025-10-24 22:37:08.500 +03:00 [INF] Executed endpoint 'CompileFileController.SaveMessages (LogCompilerBeta)'
+2025-10-24 22:37:08.501 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44315/api/CompileFile - 200 null application/json; charset=utf-8 96.9982ms
+2025-10-24 22:37:08.510 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:37:08.514 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 3.9591ms
+2025-10-24 22:37:08.518 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:37:08.518 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:37:08.518 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:37:08.518 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:37:08.565 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:37:08.569 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3.7222ms.
+2025-10-24 22:37:08.569 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:37:08.571 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 52.5661ms
+2025-10-24 22:37:08.571 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:37:08.571 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 53.7659ms
+2025-10-24 22:37:15.025 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:37:15.034 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 9.6641ms
+2025-10-24 22:37:15.042 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:37:15.051 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 9.2235ms
+2025-10-24 22:37:15.053 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:37:15.053 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:37:15.053 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:37:15.053 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:37:15.123 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:37:15.125 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2.2309ms.
+2025-10-24 22:37:15.127 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:37:15.129 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 75.8059ms
+2025-10-24 22:37:15.129 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:37:15.130 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 76.9095ms
+2025-10-24 22:37:15.136 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:37:15.136 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:37:15.136 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:37:15.136 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:37:15.192 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:37:15.199 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 6.3564ms.
+2025-10-24 22:37:15.199 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:37:15.200 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 63.5528ms
+2025-10-24 22:37:15.200 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:37:15.200 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 64.7898ms
+2025-10-24 22:37:22.686 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:37:22.688 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 1.7035ms
+2025-10-24 22:37:22.703 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:37:22.703 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:37:22.703 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:37:22.703 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:37:22.704 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/CompileFile?page=1&pageSize=20&search= - 307 null null 0.6851ms
+2025-10-24 22:37:22.704 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:37:22.754 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:37:22.755 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1.7715ms.
+2025-10-24 22:37:22.756 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:37:22.756 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 52.5997ms
+2025-10-24 22:37:22.757 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:37:22.757 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 54.1137ms
+2025-10-24 22:37:22.766 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - null null
+2025-10-24 22:37:22.768 +03:00 [INF] CORS policy execution successful.
+2025-10-24 22:37:22.768 +03:00 [INF] Executing endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:37:22.768 +03:00 [INF] Route matched with {action = "GetMessages", controller = "CompileFile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMessages(Int32, Int32, System.String) on controller CompileFileController (LogCompilerBeta).
+2025-10-24 22:37:22.819 +03:00 [INF] Executing action method CompileFileController.GetMessages (LogCompilerBeta) - Validation state: "Valid"
+2025-10-24 22:37:22.820 +03:00 [INF] Executed action method CompileFileController.GetMessages (LogCompilerBeta), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1.7305ms.
+2025-10-24 22:37:22.821 +03:00 [INF] Executing OkObjectResult, writing value of type 'LogCompilerBeta.Models.MessageResult'.
+2025-10-24 22:37:22.821 +03:00 [INF] Executed action CompileFileController.GetMessages (LogCompilerBeta) in 52.4892ms
+2025-10-24 22:37:22.822 +03:00 [INF] Executed endpoint 'CompileFileController.GetMessages (LogCompilerBeta)'
+2025-10-24 22:37:22.822 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44315/api/CompileFile?page=1&pageSize=20&search= - 200 null application/json; charset=utf-8 55.993ms

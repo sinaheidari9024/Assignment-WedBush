@@ -9,6 +9,6 @@
     <PublishAssetsDirectory>$(MSBuildProjectDirectory)\dist</PublishAssetsDirectory>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="logcompiler.client\src\types\" />
+    <Folder Include="logcompiler.client\src\utils\" />
   </ItemGroup>
 </Project>

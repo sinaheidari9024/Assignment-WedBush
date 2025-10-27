@@ -12,32 +12,30 @@ namespace LogCompilerBeta.Services
             _logger = logger;
         }
 
-        public async Task<List<string>> FindOriginalMessageAsync(FixMessageResult fixResult)
+        public List<string> FindOriginalMessage(FixMessageResult fixResult)
         {
-            return await Task.Run(() =>
+            var matchedOriginalReports = new List<string>();
+
+            foreach (var rejectMessage in fixResult.RejectMessages)
             {
-                var matchedOriginalReports = new List<string>();
+                int? tag45Value = ExtractTagValue(rejectMessage, 45);
+                if (tag45Value == null) continue;
 
-                foreach (var rejectMessage in fixResult.RejectMessages)
+                var matchingExecutionReport = fixResult.ExecutionReportMessages
+                    .FirstOrDefault(er => ExtractTagValue(er, 34) == tag45Value);
+
+                if (matchingExecutionReport != null)
                 {
-                    int? tag45Value = ExtractTagValue(rejectMessage, 45);
-                    if (tag45Value == null) continue;
-
-                    var matchingExecutionReport = fixResult.ExecutionReportMessages
-                        .FirstOrDefault(er => ExtractTagValue(er, 34) == tag45Value);
-
-                    if (matchingExecutionReport != null)
-                    {
-                        matchedOriginalReports.Add(matchingExecutionReport);
-                        fixResult.ExecutionReportMessages.Remove(matchingExecutionReport);
-                    }
+                    matchedOriginalReports.Add(matchingExecutionReport);
+                    fixResult.ExecutionReportMessages.Remove(matchingExecutionReport);
                 }
+            }
 
-                _logger.LogInformation("Found {MatchedCount} matching execution reports for rejects",
-                    matchedOriginalReports.Count);
+            _logger.LogInformation("Found {MatchedCount} matching execution reports for rejects",
+                matchedOriginalReports.Count);
 
-                return matchedOriginalReports;
-            });
+            return matchedOriginalReports;
+            
         }
 
         private int? ExtractTagValue(string fixMessage, int tagNumber)

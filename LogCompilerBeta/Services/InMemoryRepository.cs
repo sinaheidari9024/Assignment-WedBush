@@ -51,17 +51,14 @@ public class InMemoryRepository : IDataRepository
     {
         var allMessages = _messages.Values.AsQueryable();
 
-        // Apply search filter
         if (!string.IsNullOrWhiteSpace(query.SearchTerm))
         {
             allMessages = allMessages.Where(msg =>
                 msg.Message.ToLower().Contains(query.SearchTerm.ToLower()));
         }
 
-        // Get total count before pagination
         var totalCount = allMessages.Count();
 
-        // Apply pagination
         var messages = allMessages
             .OrderByDescending(msg => msg.CreatedAt)
             .Skip((query.PageNumber - 1) * query.PageSize)

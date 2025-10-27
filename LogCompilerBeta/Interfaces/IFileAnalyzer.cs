@@ -4,6 +4,6 @@ namespace LogCompilerBeta.Interfaces
 {
     public interface IFileAnalyzer
     {
-        Task<List<string>> FindOriginalMessageAsync(FixMessageResult fixResult);
+        List<string> FindOriginalMessage(FixMessageResult fixResult);
     }
 }

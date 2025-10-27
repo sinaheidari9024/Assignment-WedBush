@@ -1,5 +1,4 @@
 ﻿using LogCompiler.Tests.Data;
-using LogCompiler.Tests.Performance;
 using LogCompilerBeta.Services.ContentReaders;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -35,9 +34,9 @@ namespace LogCompiler.Tests.Services.Performance
             results.Add(smallResult);
 
             // Test MediumFileReader with optimal batch size
-            var mediumReader = new MediumFileContentReader(Mock.Of<ILogger<MediumFileContentReader>>(), 10000);
+            var mediumReader = new MediumFileContentReader(Mock.Of<ILogger<MediumFileContentReader>>(), 50000);
             var mediumResult = await PerformanceTestHelper.MeasurePerformanceAsync(
-                mediumReader, filePath, $"MediumFileReader - {sizeLabel} - Batch: 10000");
+                mediumReader, filePath, $"MediumFileReader - {sizeLabel} - Batch: 50000");
             results.Add(mediumResult);
 
             // Test LargeFileReader with optimal batch size
@@ -47,9 +46,9 @@ namespace LogCompiler.Tests.Services.Performance
             results.Add(largeResult);
 
             // Test VeryLargeFileReader with optimal config
-            var veryLargeReader = new VeryLargeFileContentReader(Mock.Of<ILogger<VeryLargeFileContentReader>>(), 100000, 4);
+            var veryLargeReader = new VeryLargeFileContentReader(Mock.Of<ILogger<VeryLargeFileContentReader>>(), 50000, 4);
             var veryLargeResult = await PerformanceTestHelper.MeasurePerformanceAsync(
-                veryLargeReader, filePath, $"VeryLargeFileReader - {sizeLabel} - Batch: 100000 - Parallelism: 4");
+                veryLargeReader, filePath, $"VeryLargeFileReader - {sizeLabel} - Batch: 50000 - Parallelism: 4");
             results.Add(veryLargeResult);
 
             // Output comparison
@@ -59,7 +58,7 @@ namespace LogCompiler.Tests.Services.Performance
                 _testOutputHelper.WriteLine(
                     $"{result.ReaderType,-25} | Time: {result.ElapsedMilliseconds,6} ms | " +
                     $"Memory: {result.MemoryUsedBytes / 1024,6} KB | " +
-                    $"Throughput: {result.TotalLinesProcessed / Math.Max(result.ElapsedMilliseconds, 1) * 1000,8:N0} lines/sec");
+                    $"Throughput: {result.TotalLinesProcessed / Math.Max(result.ElapsedMilliseconds, 1) * 1000,8:N0} lines/sec | {result.TestName}");
             }
 
             var fastest = results.OrderBy(r => r.ElapsedMilliseconds).First();

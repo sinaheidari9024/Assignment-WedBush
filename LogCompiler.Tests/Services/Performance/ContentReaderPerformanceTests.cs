@@ -107,7 +107,6 @@ namespace LogCompiler.Tests.Services.Performance
             Assert.True(result.TotalLinesProcessed > 0);
         }
 
-        // Test VeryLargeFileContentReader with different batch sizes and parallelism
         [Theory]
         [InlineData(200 * 1024, 10000, 2, "200KB")]
         [InlineData(200 * 1024, 50000, 2, "200KB")]

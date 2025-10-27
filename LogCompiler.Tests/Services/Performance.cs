@@ -1,6 +1,6 @@
 ﻿namespace LogCompiler.Tests.Services
 {
-    using LogCompiler.Tests.Performance;
+    using LogCompiler.Tests.Services.Performance;
     using LogCompilerBeta.Interfaces.ContentReader;
     using System.Diagnostics;
     // PerformanceTestHelper.cs

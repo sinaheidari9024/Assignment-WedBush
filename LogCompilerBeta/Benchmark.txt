@@ -1,68 +1,66 @@
-This benchmark evaluates file reading performance 
-using different methods for SMALL FILE SIZES.
+﻿ 
+ --====================================================================================================
+ --====================================================================================================
 
-****CompareAllMethodsPerformanceBatch50_000:
-=== PERFORMANCE SUMMARY ===
-ReadAllAtOnceOptimizedAsync: 10 ms
-ReadInBatchesAsync:         8 ms
-ReadInBatchesParallelAsync: 4 ms
-ReadWithChannelsAsync:      10 ms
-Improvement over baseline:
-ReadInBatchesAsync:         +20.0%
-ReadInBatchesParallelAsync: +60.0%
-ReadWithChannelsAsync:      +0.0%
+ --- COMPARING ALL READERS FOR 200MB ---
+    VeryLargeFileContentReader | Time:   3355 ms | Memory:  63970 KB | Throughput:  598,000 lines/sec | VeryLargeFileReader - 200MB - Batch: 50000 - Parallelism: 4
+    LargeFileContentReader    | Time:   3662 ms | Memory:  17658 KB | Throughput:  548,000 lines/sec | LargeFileReader - 200MB - Batch: 50000
+    MediumFileContentReader   | Time:   3809 ms | Memory: 474110 KB | Throughput:  527,000 lines/sec | MediumFileReader - 200MB - Batch: 50000
+    SmallFileContentReader    | Time:   4797 ms | Memory: 520169 KB | Throughput:  418,000 lines/sec | SmallFileReader - 200MB
+    
+    🏆 FASTEST: VeryLargeFileContentReader - 3355 ms
 
-===============================================
-***CompareAllMethodsPerformanceBatch250_000Channel4
-=== PERFORMANCE SUMMARY ===
-ReadAllAtOnceOptimizedAsync: 6 ms
-ReadInBatchesAsync:         7 ms
-ReadInBatchesParallelAsync: 5 ms
-ReadWithChannelsAsync:      7 ms
-Improvement over baseline:
-ReadInBatchesAsync:         -16.7%
-ReadInBatchesParallelAsync: +16.7%
-ReadWithChannelsAsync:      -16.7%
+--====================================================================================================
+--====================================================================================================
 
-===============================================
-***CompareAllMethodsPerformanceBatch250_000Channel8
-=== PERFORMANCE SUMMARY ===
-ReadAllAtOnceOptimizedAsync: 272 ms
-ReadInBatchesAsync:         10 ms
-ReadInBatchesParallelAsync: 21 ms
-ReadWithChannelsAsync:      14 ms
-Improvement over baseline:
-ReadInBatchesAsync:         +96.3%
-ReadInBatchesParallelAsync: +92.3%
-ReadWithChannelsAsync:      +94.9%
+    === COMPARING ALL READERS FOR 20MB ===
 
-================================================
-***CompareChannelsWithDifferentParallelism:
+    --- 20MB PERFORMANCE SUMMARY ---
+    VeryLargeFileContentReader | Time:    397 ms | Memory:   6037 KB | Throughput:  510,000 lines/sec | VeryLargeFileReader - 20MB - Batch: 50000 - Parallelism: 4
+    LargeFileContentReader    | Time:    428 ms | Memory:   4708 KB | Throughput:  473,000 lines/sec | LargeFileReader - 20MB - Batch: 50000
+    MediumFileContentReader   | Time:    552 ms | Memory:  47573 KB | Throughput:  367,000 lines/sec | MediumFileReader - 20MB - Batch: 50000
+    SmallFileContentReader    | Time:    642 ms | Memory:  54171 KB | Throughput:  315,000 lines/sec | SmallFileReader - 20MB
 
- Parallelism: 2 threads => Execution Time: 4 ms
-----------------------------
-Parallelism: 4 threads => Execution Time: 3 ms
-----------------------------
-Parallelism: 8 threads => Execution Time: 5 ms
-----------------------------
-Parallelism: 4 threads => Execution Time: 6 ms
+    🏆 FASTEST: VeryLargeFileContentReader - 397 ms
 
-=================================================
-***WarmUpAndMultipleRuns
-Running 3 iterations...
-    Run 1:
-      ReadAllAtOnce: 8 ms
-      ParallelBatches: 20 ms
-      BatchesAsync: 13 ms
-      Channels: 7 ms
-    Run 2:
-      ReadAllAtOnce: 4 ms
-      ParallelBatches: 7 ms
-      BatchesAsync: 4 ms
-      Channels: 3 ms
-    Run 3:
-      ReadAllAtOnce: 5 ms
-      ParallelBatches: 5 ms
-      BatchesAsync: 5 ms
-      Channels: 2 ms
+--====================================================================================================
+--====================================================================================================
 
+    === COMPARING ALL READERS FOR 2MB ===
+
+    --- 2MB PERFORMANCE SUMMARY ---
+    VeryLargeFileContentReader | Time:     37 ms | Memory:   8498 KB | Throughput:  553,000 lines/sec | VeryLargeFileReader - 2MB - Batch: 50000 - Parallelism: 4
+    LargeFileContentReader    | Time:     40 ms | Memory:   5823 KB | Throughput:  511,000 lines/sec | LargeFileReader - 2MB - Batch: 50000
+    MediumFileContentReader   | Time:     47 ms | Memory:   7136 KB | Throughput:  435,000 lines/sec | MediumFileReader - 2MB - Batch: 50000
+    SmallFileContentReader    | Time:     69 ms | Memory:  10075 KB | Throughput:  296,000 lines/sec | SmallFileReader - 2MB
+
+    🏆 FASTEST: VeryLargeFileContentReader - 37 ms
+
+--====================================================================================================
+--====================================================================================================
+
+    === COMPARING ALL READERS FOR 200KB ===
+
+    --- 200KB PERFORMANCE SUMMARY ---
+    VeryLargeFileContentReader | Time:      8 ms | Memory:   1386 KB | Throughput:  252,000 lines/sec | VeryLargeFileReader - 200KB - Batch: 50000 - Parallelism: 4
+    MediumFileContentReader   | Time:     10 ms | Memory:   1308 KB | Throughput:  201,000 lines/sec | MediumFileReader - 200KB - Batch: 50000
+    LargeFileContentReader    | Time:     14 ms | Memory:   1770 KB | Throughput:  144,000 lines/sec | LargeFileReader - 200KB - Batch: 50000
+    SmallFileContentReader    | Time:     29 ms | Memory:   1363 KB | Throughput:   69,000 lines/sec | SmallFileReader - 200KB
+
+    🏆 FASTEST: VeryLargeFileContentReader - 8 ms
+
+
+--====================================================================================================
+--====================================================================================================
+
+  === PARALLELISM COMPARISON FOR 200MB FILE ===
+    Parallelism:  1 | Time:   3414 ms | Memory: 489723 KB | Throughput:  588,000 lines/sec
+    Parallelism:  2 | Time:   2767 ms | Memory: 521971 KB | Throughput:  725,000 lines/sec
+    Parallelism:  4 | Time:   5244 ms | Memory:  33775 KB | Throughput:  382,000 lines/sec
+    Parallelism:  8 | Time:   3603 ms | Memory:  62060 KB | Throughput:  557,000 lines/sec
+    Parallelism: 16 | Time:   4106 ms | Memory:  24174 KB | Throughput:  489,000 lines/sec
+    
+    
+
+--====================================================================================================
+--====================================================================================================

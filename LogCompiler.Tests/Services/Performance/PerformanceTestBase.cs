@@ -3,7 +3,7 @@ using LogCompilerBeta.Interfaces.ContentReader;
 using System.Diagnostics;
 using Xunit.Abstractions;
 
-namespace LogCompiler.Tests.Performance
+namespace LogCompiler.Tests.Services.Performance
 {
     public class PerformanceTestBase
     {

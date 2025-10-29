@@ -68,6 +68,7 @@ namespace LogCompilerBeta.Services.ContentReaders
                 throw;
             }
         }
+
     }
 
 }

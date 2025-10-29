@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import {
     MessageList,
     SearchBar,
@@ -18,24 +18,46 @@ function App() {
     const [currentPage, setCurrentPage] = useState(1);
     const [saveLoading, setSaveLoading] = useState(false);
     const [expandedMessages, setExpandedMessages] = useState<Set<number>>(new Set());
+    const [isSearching, setIsSearching] = useState(false);
+
+    const performSearch = useCallback(() => {
+        if (searchTerm.trim() !== "") {
+            setIsSearching(true);
+            setCurrentPage(1);
+            fetchMessages(1, searchTerm.trim());
+        }
+    }, [searchTerm, fetchMessages]);
 
     useDebounce(() => {
-        if (searchTerm !== "" || currentPage !== 1) {
-            setCurrentPage(1);
-            fetchMessages(1, searchTerm);
+        if (searchTerm.trim() !== "") {
+            performSearch();
         }
     }, 500, [searchTerm]);
 
     useEffect(() => {
+        if (searchTerm.trim() === "" && isSearching) {
+            setIsSearching(false);
+            setCurrentPage(1);
+            fetchMessages(1, "");
+        }
+    }, [searchTerm, isSearching, fetchMessages]);
+
+    useEffect(() => {
         fetchMessages(1, "");
     }, [fetchMessages]);
+
+    useEffect(() => {
+        if (currentPage !== 1 || !isSearching) {
+            fetchMessages(currentPage, searchTerm.trim());
+        }
+    }, [currentPage]); 
 
     const handleSaveMessages = async () => {
         try {
             setSaveLoading(true);
             setError(null);
             await apiService.saveMessages();
-            await fetchMessages(1, searchTerm);
+            await fetchMessages(currentPage, searchTerm);
         } catch (error) {
             setError(error instanceof Error ? error.message : "Failed to save messages.");
         } finally {
@@ -45,7 +67,17 @@ function App() {
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
-        fetchMessages(page, searchTerm);
+    };
+
+    const handleSearchChange = (term: string) => {
+        setSearchTerm(term);
+    };
+
+    const handleClearSearch = () => {
+        setSearchTerm("");
+        setCurrentPage(1);
+        setIsSearching(false);
+        fetchMessages(1, "");
     };
 
     const toggleExpand = (messageId: number) => {
@@ -73,13 +105,14 @@ function App() {
                     loading={saveLoading}
                     className="save-button"
                 >
-                    Save Sample Messages
+                    Read file
                 </ActionButton>
             </div>
 
             <SearchBar
                 searchTerm={searchTerm}
-                onSearchChange={setSearchTerm}
+                onSearchChange={handleSearchChange}
+                onClearSearch={handleClearSearch} // Add clear search functionality
             />
 
             <ErrorDisplay

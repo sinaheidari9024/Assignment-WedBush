@@ -59,11 +59,11 @@ namespace LogCompilerBeta.Services.ContentReaders
                         var fixMessage = ExtractFixMessage(line);
                         if (!string.IsNullOrEmpty(fixMessage))
                         {
-                            if (ContainsMessageType(fixMessage, "3"))
+                            if (ContainsMessageType(fixMessage, Constants.RejectMessageType))
                             {
                                 localRejects.Add(line);
                             }
-                            else if (ContainsMessageType(fixMessage, "8"))
+                            else if (ContainsMessageType(fixMessage, Constants.OriginalMessageType))
                             {
                                 localExecutions.Add(line);
                             }

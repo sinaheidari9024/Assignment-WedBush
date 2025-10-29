@@ -1,4 +1,12 @@
-﻿ 
+﻿    
+    
+    --- 2GB PERFORMANCE SUMMARY ---
+    VeryLargeFileContentReader | Time:  36527 ms | Memory: 655506 KB | Throughput:  557,000 lines/sec | VeryLargeFileReader - 2GB - Batch: 50000 - Parallelism: 4
+    LargeFileContentReader    | Time:  51737 ms | Memory:      0 KB | Throughput:  393,000 lines/sec | LargeFileReader - 2GB - Batch: 50000
+    MediumFileContentReader   | Time: 134473 ms | Memory: 4875599 KB | Throughput:  151,000 lines/sec | MediumFileReader - 2GB - Batch: 50000
+    SmallFileContentReader    | Time: 306219 ms | Memory: 5033276 KB | Throughput:   66,000 lines/sec | SmallFileReader - 2GB
+
+    🏆 FASTEST: VeryLargeFileContentReader - 36527 ms
  --====================================================================================================
  --====================================================================================================
 

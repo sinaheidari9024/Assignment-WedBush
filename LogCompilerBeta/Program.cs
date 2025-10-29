@@ -1,5 +1,6 @@
 using LogCompilerBeta.Infrastructure;
 using LogCompilerBeta.Interfaces;
+using LogCompilerBeta.Models;
 using LogCompilerBeta.Services;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -10,6 +11,8 @@ CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
 CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.Configure<Settings>(builder.Configuration.GetSection("Settings"));
 
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)

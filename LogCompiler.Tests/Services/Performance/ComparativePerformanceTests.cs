@@ -20,6 +20,7 @@ namespace LogCompiler.Tests.Services.Performance
         [InlineData(2 * 1024 * 1024, "2MB")]
         [InlineData(20 * 1024 * 1024, "20MB")]
         [InlineData(200 * 1024 * 1024, "200MB")]
+        [InlineData(2047 * 1024 * 1024, "2GB")]
         public async Task CompareAllReaders_SameFileSize(long fileSize, string sizeLabel)
         {
             _testOutputHelper.WriteLine($"\n=== COMPARING ALL READERS FOR {sizeLabel} ===");

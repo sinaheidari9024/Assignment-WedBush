@@ -2,6 +2,7 @@ using LogCompilerBeta.Interfaces;
 using LogCompilerBeta.Interfaces.Factory;
 using LogCompilerBeta.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -11,19 +12,20 @@ public class CompileFileController : ControllerBase
     private readonly IContentReaderFactory _contentReaderFactory;
     private readonly IDataRepository _dataRepository;
     private readonly ILogger<CompileFileController> _logger;
+    private readonly string _filePath;
 
     public CompileFileController(ILogger<CompileFileController> logger
                                             , IFileAnalyzer fileAnalyzer
                                             , IContentReaderFactory contentReaderFactory
-                                            , IDataRepository dataRepository)
+                                            , IDataRepository dataRepository
+                                            , IOptions<Settings> Settings)
     {
         _logger = logger;
         _fileAnalyzer = fileAnalyzer;
         _contentReaderFactory = contentReaderFactory;
         _dataRepository = dataRepository;
+        _filePath = Settings.Value.MessageFilePath;
     }
-
-    private readonly string filePath = "C:\\Assignment\\AVATAR3.messages.log";
 
 
     [HttpPost]
@@ -31,9 +33,9 @@ public class CompileFileController : ControllerBase
     {
         try
         {
-            var contentReader = _contentReaderFactory.GetContentReader(filePath);
+            var contentReader = _contentReaderFactory.GetContentReader(_filePath);
 
-            var fileContent = await contentReader.ReadAsync(filePath);
+            var fileContent = await contentReader.ReadAsync(_filePath);
             var messages = _fileAnalyzer.FindOriginalMessage(fileContent);
             var result = await _dataRepository.SaveMessagesAsync(messages);
 
@@ -41,12 +43,12 @@ public class CompileFileController : ControllerBase
         }
         catch (FileNotFoundException ex)
         {
-            _logger.LogWarning(ex, "File not found: {FilePath}", filePath);
-            return NotFound(new { error = "File not found", path = filePath });
+            _logger.LogWarning(ex, "File not found: {FilePath}", _filePath);
+            return NotFound(new { error = "File not found", path = _filePath });
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error compiling file: {FilePath}", filePath);
+            _logger.LogError(ex, "Error compiling file: {FilePath}", _filePath);
             return StatusCode(500, new { error = "An error occurred while processing the file" });
         }
     }
